@@ -1,6 +1,24 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Beaker, Download, FileText } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  Beaker,
+  Download,
+  Droplets,
+  Factory,
+  FileText,
+  FlaskConical,
+  Hammer,
+  Layers3,
+  PackageCheck,
+  Paintbrush,
+  ShieldCheck,
+  Shirt,
+  Sparkles,
+  Utensils,
+  Waves,
+  Wheat,
+} from "lucide-react";
 import { figmaAssets } from "@/lib/design";
 import { getProduct, products } from "@/lib/data";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -8,6 +26,133 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 type ProductDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+type ApplicationCardContent = {
+  eyebrow: string;
+  description: string;
+  capability: string;
+  icon: LucideIcon;
+};
+
+const applicationContent: Record<string, ApplicationCardContent> = {
+  "Food Industry": {
+    eyebrow: "Texture & Stability",
+    description:
+      "Support for viscosity, mouthfeel, water retention, and batch-to-batch stability in food-grade formulations.",
+    capability: "Food-grade review",
+    icon: Utensils,
+  },
+  "Food Processing": {
+    eyebrow: "Processing Consistency",
+    description:
+      "Ingredient matching for texture control, moisture behavior, sweetness balance, and production reliability.",
+    capability: "Formulation support",
+    icon: Wheat,
+  },
+  "Beverage Systems": {
+    eyebrow: "Solubility & Body",
+    description:
+      "Grade selection for beverage mixes, carriers, acidity control, and consistent sensory performance.",
+    capability: "Beverage fit",
+    icon: Droplets,
+  },
+  Fermentation: {
+    eyebrow: "Carbohydrate Source",
+    description:
+      "Reliable carbohydrate input for fermentation workflows that need predictable purity and handling.",
+    capability: "Process matching",
+    icon: FlaskConical,
+  },
+  Mining: {
+    eyebrow: "Mineral Processing",
+    description:
+      "Application review for depressant, binder, and process-modifier use under demanding plant conditions.",
+    capability: "Ore-condition review",
+    icon: Hammer,
+  },
+  Paper: {
+    eyebrow: "Strength & Retention",
+    description:
+      "CMC support for retention, surface treatment, and consistency needs across selected paper applications.",
+    capability: "Grade alignment",
+    icon: FileText,
+  },
+  Ceramic: {
+    eyebrow: "Binding & Forming",
+    description:
+      "Binder and rheology support for ceramic bodies, glaze preparation, and stable forming behavior.",
+    capability: "Binder selection",
+    icon: Sparkles,
+  },
+  Textile: {
+    eyebrow: "Print & Sizing Control",
+    description:
+      "Viscosity and thickening support for textile printing, sizing, and sharper production outcomes.",
+    capability: "Viscosity control",
+    icon: Shirt,
+  },
+  Texturizing: {
+    eyebrow: "Texture System",
+    description:
+      "Thickening and body-building support for products that need stable texture and controlled processing.",
+    capability: "Texture planning",
+    icon: Layers3,
+  },
+  "Industrial Blends": {
+    eyebrow: "Blend Reliability",
+    description:
+      "Practical support for carrier systems, powder handling, dispersion, and repeatable blend performance.",
+    capability: "Blend review",
+    icon: PackageCheck,
+  },
+  "Water Treatment": {
+    eyebrow: "Treatment Workflow",
+    description:
+      "Chemical selection support for disinfection, process water, wastewater, and sanitation programs.",
+    capability: "Treatment fit",
+    icon: Waves,
+  },
+  Sanitation: {
+    eyebrow: "Controlled Disinfection",
+    description:
+      "Grade and format discussion for sanitation workflows that need practical handling and documentation.",
+    capability: "Safety document fit",
+    icon: ShieldCheck,
+  },
+  "Industrial Cleaning": {
+    eyebrow: "Facility Support",
+    description:
+      "Product matching for cleaning and treatment routines where stability, form, and supply continuity matter.",
+    capability: "Operational support",
+    icon: Factory,
+  },
+  "pH Control": {
+    eyebrow: "Acidity Adjustment",
+    description:
+      "Support for pH control, acidity balancing, and chelation needs in food and industrial formulations.",
+    capability: "Control range review",
+    icon: Beaker,
+  },
+  "Industrial Formulation": {
+    eyebrow: "Formulation Fit",
+    description:
+      "Application guidance for formulation adjustment, compatibility discussion, and documentation readiness.",
+    capability: "Compatibility review",
+    icon: Paintbrush,
+  },
+};
+
+function getApplicationContent(application: string): ApplicationCardContent {
+  return (
+    applicationContent[application] ?? {
+      eyebrow: "Application Fit",
+      description:
+        "AGT can help match the right grade, specification, and documentation package for this application.",
+      capability: "Technical review",
+      icon: Beaker,
+    }
+  );
+}
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -107,20 +252,55 @@ export default async function ProductDetailPage({
       </section>
 
       <section className="agt-container pb-20">
-        <h2 className="border-b border-[#e6e8ea] pb-4 text-2xl font-bold tracking-[-0.6px]">
-          Applications
-        </h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {product.applications.map((application) => (
-            <article key={application} className="rounded-lg bg-[#f2f4f6] p-8">
-              <Beaker className="text-primary" size={28} />
-              <h3 className="mt-5 text-xl font-bold">{application}</h3>
-              <p className="mt-3 text-sm leading-[22px] text-muted">
-                AGT can help match the right grade, specification, and
-                documentation package for this application.
-              </p>
-            </article>
-          ))}
+        <div className="flex flex-col gap-3 border-b border-[#e6e8ea] pb-5 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[1.4px] text-primary">
+              Application Fit
+            </p>
+            <h2 className="mt-2 text-2xl font-bold tracking-[-0.6px]">
+              Applications
+            </h2>
+          </div>
+          <p className="max-w-md text-sm leading-6 text-muted">
+            Each use case is matched through grade selection, specification
+            review, and documentation readiness.
+          </p>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {product.applications.map((application, index) => {
+            const content = getApplicationContent(application);
+            const Icon = content.icon;
+
+            return (
+              <article
+                key={application}
+                className="group relative overflow-hidden rounded-lg border border-[#dde3ea] bg-white p-7 shadow-[0_18px_42px_-34px_rgba(15,35,63,0.45)] transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_26px_54px_-34px_rgba(15,35,63,0.55)]"
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[#008bd2] to-accent" />
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md border border-primary/10 bg-primary/5 text-primary transition duration-300 group-hover:bg-primary group-hover:text-white">
+                    <Icon size={24} strokeWidth={2.1} />
+                  </div>
+                  <span className="rounded-full border border-[#dfe4ea] bg-[#f8fafc] px-3 py-1 text-[10px] font-bold uppercase tracking-[1.2px] text-muted">
+                    Fit {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <p className="mt-6 text-xs font-bold uppercase tracking-[1.3px] text-accent">
+                  {content.eyebrow}
+                </p>
+                <h3 className="mt-2 text-xl font-bold tracking-[-0.4px] text-foreground">
+                  {application}
+                </h3>
+                <p className="mt-3 text-sm leading-[23px] text-muted">
+                  {content.description}
+                </p>
+                <div className="mt-6 flex items-center gap-2 border-t border-[#e6e8ea] pt-4 text-xs font-bold uppercase tracking-[1.1px] text-primary">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {content.capability}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 

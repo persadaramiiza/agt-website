@@ -42,7 +42,7 @@ export function Header() {
             >
               Products
             </Link>
-            <div className="nav-menu invisible absolute left-0 top-full w-[640px] translate-y-3 pt-5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+            <div className="nav-menu invisible fixed left-1/2 top-16 w-[min(640px,calc(100vw-48px))] -translate-x-1/2 translate-y-3 pt-5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
               <div className="nav-menu-panel industrial-shadow grid grid-cols-[0.8fr_1.2fr] gap-px overflow-hidden rounded-lg border border-[#e0e3e5] bg-[#e0e3e5]">
                 <div className="bg-white p-6">
                   <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
