@@ -55,7 +55,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/contact"
-                  className="rounded-[2px] border-2 border-white/45 bg-white/10 px-7 py-3 text-sm font-bold uppercase tracking-[0.7px] text-white backdrop-blur transition hover:bg-white/18"
+                  className="rounded-[2px] border-2 border-white bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.7px] text-primary shadow-lg transition hover:-translate-y-0.5 hover:bg-[#f8fafc]"
                 >
                   Request a Quote
                 </Link>
