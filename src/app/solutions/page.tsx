@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, FlaskConical } from "lucide-react";
 import { figmaAssets, solutions } from "@/lib/design";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -22,16 +23,16 @@ export default function SolutionsPage() {
               <span className="block text-accent">We Solve Problems.</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-[29px] text-muted">
-              At AGT, we engineer specific chemical interventions designed to
-              optimize your industrial processes, reduce operational overhead,
-              and ensure consistent, high-yield results.
+              At AGT, we deliver targeted chemical solutions designed to improve
+              process efficiency, reduce operational challenges, and help your
+              business achieve consistent, reliable results.
             </p>
-            <Link
-              href="#interventions"
-              className="mt-8 inline-flex items-center gap-2 rounded-[2px] bg-accent px-8 py-3 text-base font-medium text-white"
+            <a
+              href={buildWhatsAppUrl("solution consultation")}
+              className="cta-red mt-8 inline-flex items-center gap-2 rounded-[2px] bg-accent px-8 py-3 text-base font-medium text-white"
             >
-              Explore Methodologies <ArrowRight size={14} />
-            </Link>
+              Find Your Solution <ArrowRight size={14} />
+            </a>
           </div>
           <div className="industrial-shadow overflow-hidden rounded-lg bg-[#f2f4f6]">
             <img
@@ -45,11 +46,12 @@ export default function SolutionsPage() {
 
       <section id="interventions" className="agt-container py-20">
         <h2 className="text-3xl font-bold tracking-[-0.75px]">
-          Targeted Interventions
+          Customer Challenges We Address
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-6 text-muted">
           Our specialized programs address critical pain points across key
-          industrial sectors, leveraging molecular precision for macro-level impact.
+          industrial sectors, combining application expertise with tailored
+          formulations to ensure consistent and efficient production output.
         </p>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           {solutions.map((item) => (
@@ -73,6 +75,20 @@ export default function SolutionsPage() {
                     Our Solution
                   </p>
                   <p className="mt-2 text-sm font-medium leading-5">{item.solution}</p>
+                </div>
+                <div className="flex flex-col gap-3 border-l-4 border-primary bg-white px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.6px] text-primary">
+                      {item.productSlug === "contact" ? "Service Highlight" : "Product Highlight"}
+                    </p>
+                    <p className="mt-2 text-sm font-bold">{item.highlight}</p>
+                  </div>
+                  <Link
+                    href={item.productSlug === "contact" ? "/contact" : `/products/${item.productSlug}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-accent"
+                  >
+                    Learn more <ArrowRight size={14} />
+                  </Link>
                 </div>
               </div>
             </article>

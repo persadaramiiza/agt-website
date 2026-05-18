@@ -1,24 +1,24 @@
 export const figmaAssets = {
   heroLab:
-    "https://www.figma.com/api/mcp/asset/bcd8c2b5-ad3a-4e51-a0dd-4294d92c8cd5",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
   waterPlant:
-    "https://www.figma.com/api/mcp/asset/2eb41415-4e0a-44dd-bef7-8544da511f00",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
   cmcPowder:
-    "https://www.figma.com/api/mcp/asset/11971d45-7044-4b6f-a97e-5212ed1c7206",
+    "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?auto=format&fit=crop&w=1200&q=80",
   whyHero:
-    "https://www.figma.com/api/mcp/asset/fd58b422-e183-48f3-a26c-9025b7f4014d",
+    "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1200&q=80",
   globalPlant:
-    "https://www.figma.com/api/mcp/asset/3cd35e2d-e61e-448c-9eb2-7498f85d3e4d",
+    "https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=1200&q=80",
   solutionsLab:
-    "https://www.figma.com/api/mcp/asset/26ce6ad3-e26f-444f-bc73-533fb01a4f2c",
+    "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1200&q=80",
   resourceFeatured:
-    "https://www.figma.com/api/mcp/asset/d873bd36-5087-47f5-b66f-8ada911e7e0d",
+    "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80",
   resourceWater:
-    "https://www.figma.com/api/mcp/asset/3f338dfc-cc78-42e8-8dfd-2779e865a624",
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
   resourceFood:
-    "https://www.figma.com/api/mcp/asset/f2a33449-eb9c-47ae-b47e-c483de58edb0",
+    "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80",
   resourceNews:
-    "https://www.figma.com/api/mcp/asset/f0960aa3-6c6e-49de-956f-07604fa1f585",
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1200&q=80",
 };
 
 export const industries = [
@@ -48,16 +48,16 @@ export const industries = [
 
 export const approachItems = [
   {
-    title: "Purity Validation",
-    body: "Every batch undergoes rigorous lab testing to ensure consistent molecular integrity.",
+    title: "Quality Assurance",
+    body: "Disciplined vendor qualification and batch verification to protect product consistency.",
   },
   {
-    title: "Custom Formulation",
-    body: "Adjustments to viscosity, pH, and concentration based on your exact machinery specs.",
+    title: "Competitive Pricing",
+    body: "Global manufacturer relationships that give our partners access to competitive pricing.",
   },
   {
-    title: "Supply Chain Resilience",
-    body: "Strategic stockpiling and robust logistics to prevent manufacturing downtime.",
+    title: "Reliable Service",
+    body: "Reliable stock availability and logistics execution to support faster lead times and uninterrupted operations.",
   },
 ];
 
@@ -65,29 +65,37 @@ export const solutions = [
   {
     title: "Oil Drilling Optimization",
     problem:
-      "High friction, thermal degradation of drilling fluids, and compromised wellbore stability in extreme depth environments.",
+      "Drilling fluids must maintain stable viscosity, filtration control, and shale inhibition under changing well conditions. Poor fluid performance can lead to excessive fluid loss, unstable wellbores, higher torque and drag, and increased risk of operational downtime.",
     solution:
-      "Advanced rheology modifiers and high-temp fluid stabilizers that maintain viscosity profiles, reducing torque and drag by up to 30%.",
+      "AGT supplies high-performance fluid additives that help improve drilling fluid stability, control filtration loss, and support consistent rheology across demanding drilling conditions.",
+    highlight: "CMC",
+    productSlug: "cmc",
   },
   {
     title: "Mining Flotation Efficiency",
     problem:
-      "Low recovery rates of valuable minerals and excessive reagent consumption due to ore variability.",
+      "In mineral flotation, unwanted gangue minerals can reduce concentrate quality and lower process efficiency. Variations in ore composition, particle behavior, and reagent performance can also affect recovery rates and overall flotation consistency.",
     solution:
-      "Tailored collector and frother formulations that increase concentrate grade and recovery efficiency.",
+      "AGT provides specialized Sodium Carboxymethyl Cellulose grades that function as depressants and process modifiers, helping improve selectivity, reduce unwanted mineral recovery, and support more consistent flotation performance.",
+    highlight: "Sodium Carboxymethyl Cellulose",
+    productSlug: "cmc",
   },
   {
     title: "Food Stabilization Solutions",
     problem:
-      "Inconsistent texture, syneresis, and short shelf-life in processed foods.",
+      "Processed food and beverage products often face challenges such as inconsistent texture, moisture migration, separation, crystallization, and reduced shelf stability.",
     solution:
-      "High-purity Maltodextrin and hydrocolloid blends that bind moisture and improve mouthfeel.",
+      "AGT supplies food-grade ingredients to support texture, body, sweetness, acidity control, moisture management, and product stability.",
+    highlight: "Dextrose Monohydrate",
+    productSlug: "dextrose-monohydrate",
   },
   {
     title: "Cost Reduction Programs",
     problem:
-      "Bloated chemical spend due to over-dosing, inefficient mixing, and generic bulk supplies.",
+      "Unnecessary cost increases occur from inconsistent raw material quality, inefficient dosage rates, poor product fit, and reliance on generic bulk chemicals that may not be optimized for their specific process.",
     solution:
-      "Comprehensive chemical audits and concentrated high-efficacy formulations that lower dosage rates.",
+      "AGT works with customers to identify the right chemical grade, specification, and application fit, helping reduce waste, improve process consistency, and optimize cost-in-use rather than focusing only on price per kilogram.",
+    highlight: "Lab-Driven Pre & Post Sales Technical Support",
+    productSlug: "contact",
   },
 ];

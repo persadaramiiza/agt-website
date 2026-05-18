@@ -1,3 +1,8 @@
+export type ProductDocument = {
+  label: string;
+  href: string;
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -6,6 +11,8 @@ export type Product = {
   description: string;
   applications: string[];
   specs: { label: string; value: string }[];
+  caseExamples: string[];
+  documents: ProductDocument[];
   image: string;
 };
 
@@ -17,6 +24,18 @@ export type Resource = {
   publishedAt: string;
   readTime: string;
   body: string[];
+};
+
+export type Industry = {
+  slug: string;
+  name: string;
+  eyebrow: string;
+  summary: string;
+  description: string;
+  image: string;
+  challenges: string[];
+  solutions: string[];
+  productSlugs: string[];
 };
 
 export type InquiryPayload = {

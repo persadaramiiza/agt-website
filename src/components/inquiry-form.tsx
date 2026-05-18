@@ -103,10 +103,13 @@ export function InquiryForm({
       </label>
       <button
         disabled={status === "submitting"}
-        className="inline-flex h-11 items-center justify-center gap-2 rounded-[2px] bg-accent px-5 text-sm font-bold uppercase tracking-[0.7px] text-white transition hover:bg-[#8f0019] disabled:cursor-not-allowed disabled:opacity-65"
+        className="cta-red inline-flex h-11 items-center justify-center gap-2 rounded-[2px] bg-accent px-5 text-sm font-bold uppercase tracking-[0.7px] transition hover:bg-[#8f0019] disabled:cursor-not-allowed disabled:opacity-65"
+        style={{ color: "#ffffff" }}
       >
-        <Send size={17} />
-        {status === "submitting" ? "Sending..." : "Send inquiry"}
+        <Send size={17} color="#ffffff" />
+        <span style={{ color: "#ffffff" }}>
+          {status === "submitting" ? "Sending..." : "Send inquiry"}
+        </span>
       </button>
       {message ? (
         <p

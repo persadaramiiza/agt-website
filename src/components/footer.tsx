@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -5,15 +6,19 @@ export function Footer() {
     <footer className="border-t border-[#e2e8f0]/40 bg-[#f8fafc]">
       <div className="agt-container grid gap-10 py-16 md:grid-cols-4">
         <div>
-          <p className="text-lg font-bold tracking-[-0.45px] text-[#1e3a8a]">
-            AGT ARBE CHEMINDO
-          </p>
+          <Image
+            src="/images/brand/agt-logo.png"
+            alt="Arbe Global Trading"
+            width={961}
+            height={186}
+            className="h-10 w-auto"
+          />
           <p className="mt-4 max-w-xs text-sm leading-[22.75px] text-[#64748b]">
-            Precision in chemical manufacturing and supply chain solutions for
-            modern industrial demands.
+            Reliable chemical materials and distribution support for essential
+            industries across Southeast Asia.
           </p>
           <p className="mt-4 text-xs leading-5 text-[#94a3b8]">
-            © 2024 Arbe Chemindo. Precision in Chemical Solutions.
+            Copyright 2024 Arbe Chemindo. Reliable Chemicals. Delivered with Precision.
           </p>
         </div>
         <div>
@@ -21,9 +26,10 @@ export function Footer() {
             Industries
           </p>
           <div className="mt-5 grid gap-3 text-sm text-[#64748b] underline">
-            <Link href="/solutions">Water Treatment</Link>
-            <Link href="/solutions">Mining Efficiency</Link>
-            <Link href="/solutions">Food Stabilization</Link>
+            <Link href="/industries/water-treatment">Water Treatment</Link>
+            <Link href="/industries/mining">Mining</Link>
+            <Link href="/industries/food-beverage">Food & Beverage</Link>
+            <Link href="/industries/agriculture">Agriculture</Link>
           </div>
         </div>
         <div>
@@ -33,6 +39,10 @@ export function Footer() {
           <div className="mt-5 grid gap-3 text-sm text-[#64748b] underline">
             <Link href="/products/cmc">CMC</Link>
             <Link href="/products/maltodextrin">Maltodextrin</Link>
+            <Link href="/products/dextrose-monohydrate">Dextrose Monohydrate</Link>
+            <Link href="/products/corn-starch">Corn Starch</Link>
+            <Link href="/products/tcca">TCCA</Link>
+            <Link href="/products/citric-acid">Citric Acid</Link>
           </div>
         </div>
         <div>
@@ -43,8 +53,13 @@ export function Footer() {
             href="/contact"
             className="mt-5 inline-block text-sm font-bold text-[#dc2626] underline"
           >
-            Contact Expert →
+            Request a Quote
           </Link>
+          <p className="mt-4 text-sm leading-[22px] text-[#64748b]">
+            marketing@arbechem.com
+            <br />
+            (62) (21) 8281354
+          </p>
         </div>
       </div>
     </footer>

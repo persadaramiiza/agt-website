@@ -19,11 +19,14 @@ export default function WhyArbePage() {
         <div className="absolute inset-0 bg-[linear-gradient(158deg,#003f87_0%,#0056b3_100%)] opacity-90 mix-blend-multiply" />
         <div className="agt-container relative">
           <h1 className="max-w-2xl text-5xl font-black leading-none tracking-[-1.5px] text-white md:text-6xl">
-            Precision in Every Molecule.
+            Reliable Chemical Supply for the Industries That Move Southeast Asia Forward
           </h1>
           <p className="mt-6 max-w-2xl text-2xl leading-8 text-[#bbd0ff]">
-            Beyond supplying chemicals, we engineer stability. Discover the
-            legacy, expertise, and global reach that defines AGT Arbe Chemindo.
+            AGT was established to support essential industries by providing
+            dependable access to high-quality chemical materials. We serve the
+            food & beverage, mining, agriculture, and water treatment sectors
+            with a commitment to helping our partners operate efficiently,
+            compete effectively, and grow with confidence.
           </p>
         </div>
       </section>
@@ -37,18 +40,26 @@ export default function WhyArbePage() {
             Decades of Industrial Reliability.
           </h2>
           <p className="mt-6 text-lg leading-[29px] text-muted">
-            Part of the globally recognized Arbechem Group, AGT brings a wealth
-            of international experience localized for precise operational needs.
-            We&apos;ve built our reputation on purity and supply chain reliability.
+            AGT is part of Arbe Group, a leading specialty chemicals group with
+            deep expertise in water-soluble cellulose-based chemicals for oil &
+            gas, food & beverage, homecare and personal care sectors.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-6">
+          <p className="mt-5 text-lg leading-[29px] text-muted">
+            PT Arbe Chemindo is Southeast Asia&apos;s largest producer of Sodium
+            Carboxymethyl Cellulose and Polyanionic Cellulose, combining decades
+            of industry experience, technical knowledge, and supply discipline to
+            serve customers with quality and reliability.
+          </p>
+          <a
+            href="https://arbechem.com"
+            className="mt-5 inline-flex font-bold text-primary underline"
+          >
+            Visit Arbechem.com
+          </a>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
             <div className="bg-line p-6">
-              <p className="text-4xl font-black text-primary">30+</p>
+              <p className="text-4xl font-black text-primary">35+</p>
               <p className="mt-2 text-sm font-medium text-muted">Years of Excellence</p>
-            </div>
-            <div className="bg-line p-6">
-              <p className="text-4xl font-black text-accent">50+</p>
-              <p className="mt-2 text-sm font-medium text-muted">Global Markets</p>
             </div>
           </div>
         </div>
@@ -62,9 +73,9 @@ export default function WhyArbePage() {
             <h3 className="flex items-center gap-2 text-lg font-bold text-primary">
               <Globe2 size={20} /> Arbechem Group
             </h3>
-            <p className="mt-2 text-sm leading-[22px] text-muted">
-              Leveraging global manufacturing standards to deliver localized
-              problem-solving capabilities.
+              <p className="mt-2 text-sm leading-[22px] text-muted">
+              Scaled manufacturing capacity is paired with localized chemical
+              distribution for Indonesian and Southeast Asian partners.
             </p>
           </div>
         </div>
@@ -74,11 +85,11 @@ export default function WhyArbePage() {
         <div className="agt-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-4xl font-extrabold tracking-[-0.9px]">
-              The Science of Certainty.
+              Bridging scaled manufacturing with localized chemical distribution.
             </h2>
             <p className="mt-5 text-lg leading-7 text-muted">
-              We don&apos;t leave quality to chance. Our rigorous testing and deep
-              technical expertise ensure every batch meets exact specifications.
+              Our clients trust us to deliver quality-assured feedstock on time,
+              at competitive prices, across every scale of operation.
             </p>
           </div>
           <div className="mt-16 grid gap-6 lg:grid-cols-3">
@@ -88,19 +99,31 @@ export default function WhyArbePage() {
                 Uncompromising Quality Assurance
               </h3>
               <p className="mt-4 max-w-xl text-base leading-6 text-muted">
-                ISO-certified processes and state-of-the-art laboratory testing
-                validate every formulation. We document every variable so you
-                have complete confidence in stability and performance.
+                Every product is supported by structured quality control,
+                reliable sourcing standards, and documented specifications. We
+                help ensure each material meets the required quality,
+                consistency, and performance before it reaches your business.
               </p>
             </article>
             <article className="rounded-lg bg-background p-10">
               <Beaker className="text-primary" size={32} />
               <h3 className="mt-6 text-xl font-bold">Technical Expertise</h3>
               <p className="mt-4 text-sm leading-[22px] text-muted">
-                Our chemists and engineers consult on application, optimization,
-                and safety protocols.
+                Our sector-focused teams specialize in supplying essential
+                materials to core industries, helping customers identify the
+                right product, specification, and formulation for their
+                application with confidence.
               </p>
             </article>
+          </div>
+          <div className="mt-8 grid gap-4 rounded-lg bg-background p-8 md:grid-cols-4">
+            {["API Monogram 13A", "Halal Certified", "ISO 9001:2015", "GMP Standards"].map(
+              (item) => (
+                <div key={item} className="rounded bg-[#f2f4f6] px-5 py-4">
+                  <p className="text-sm font-bold text-[#1e3a8a]">{item}</p>
+                </div>
+              ),
+            )}
           </div>
         </div>
       </section>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Beaker, Download, FileText } from "lucide-react";
 import { figmaAssets } from "@/lib/design";
@@ -9,24 +8,6 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 type ProductDetailPageProps = {
   params: Promise<{ slug: string }>;
 };
-
-const applications = [
-  {
-    title: "Oil Drilling",
-    body: "Acts as an effective fluid-loss controller and viscosifier in drilling muds, maintaining stability under pressure.",
-    tags: ["Fluid Loss", "Viscosifier"],
-  },
-  {
-    title: "Mining",
-    body: "Used as a pelletizing binder in iron ore processing and as a depressant in flotation to improve grade recovery.",
-    tags: ["Binder", "Depressant"],
-  },
-  {
-    title: "Food & Beverage",
-    body: "Provides excellent thickening, stabilization, and moisture retention in baked goods and sauces.",
-    tags: ["Stabilizer", "Thickener"],
-  },
-];
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -75,16 +56,18 @@ export default async function ProductDetailPage({
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={buildWhatsAppUrl(product.name)}
-              className="rounded-[2px] bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-white shadow-[0_4px_7px_rgba(187,0,33,0.39)]"
+              className="cta-red rounded-[2px] bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-white shadow-[0_4px_7px_rgba(187,0,33,0.39)]"
             >
-              Request Quote
+              Request an Instant Quote
             </a>
-            <Link
-              href="/resources"
-              className="rounded-[2px] border border-[#c2c6d4]/30 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-primary"
-            >
-              Download TDS
-            </Link>
+            {product.documents[0] ? (
+              <a
+                href={product.documents[0].href}
+                className="rounded-[2px] border border-[#c2c6d4]/30 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-primary"
+              >
+                Download Document
+              </a>
+            ) : null}
           </div>
         </div>
         <div className="industrial-shadow overflow-hidden rounded-lg bg-white">
@@ -128,21 +111,27 @@ export default async function ProductDetailPage({
           Applications
         </h2>
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {applications.map((app) => (
-            <article key={app.title} className="rounded-lg bg-[#f2f4f6] p-8">
+          {product.applications.map((application) => (
+            <article key={application} className="rounded-lg bg-[#f2f4f6] p-8">
               <Beaker className="text-primary" size={28} />
-              <h3 className="mt-5 text-xl font-bold">{app.title}</h3>
-              <p className="mt-3 text-sm leading-[22px] text-muted">{app.body}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {app.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-[2px] bg-line px-2 py-1 text-[10px] uppercase tracking-[1px] text-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <h3 className="mt-5 text-xl font-bold">{application}</h3>
+              <p className="mt-3 text-sm leading-[22px] text-muted">
+                AGT can help match the right grade, specification, and
+                documentation package for this application.
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="agt-container pb-20">
+        <h2 className="border-b border-[#e6e8ea] pb-4 text-2xl font-bold tracking-[-0.6px]">
+          Case Examples
+        </h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {product.caseExamples.map((example) => (
+            <article key={example} className="rounded-lg bg-white p-6 shadow-[0_4px_16px_-4px_rgba(25,28,30,0.06)]">
+              <p className="text-sm leading-6 text-muted">{example}</p>
             </article>
           ))}
         </div>
@@ -159,18 +148,16 @@ export default async function ProductDetailPage({
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-0">
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
-            >
-              <FileText size={16} /> TDS Download
-            </Link>
-            <Link
-              href="/resources"
-              className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
-            >
-              <Download size={16} /> MSDS Download
-            </Link>
+            {product.documents.map((document, index) => (
+              <a
+                key={document.href}
+                href={document.href}
+                className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
+              >
+                {index === 0 ? <FileText size={16} /> : <Download size={16} />}
+                {document.label}
+              </a>
+            ))}
           </div>
         </div>
       </section>

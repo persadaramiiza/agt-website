@@ -38,10 +38,41 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             Precision in chemical manufacturing and supply chain solutions for
             modern industrial demands.
           </p>
-          <div className="mt-8 grid gap-4 text-sm text-muted">
-            <span>Jakarta, Indonesia</span>
-            <span>WhatsApp quote route available on each product page.</span>
-            <span>Salesforce-ready lead workflow.</span>
+          <div className="mt-8 grid gap-6 text-sm text-muted">
+            <div>
+              <p className="font-bold text-foreground">Head Office</p>
+              <p className="mt-2 leading-[22px]">
+                Satrio Tower, 20th Floor
+                <br />
+                Jl. Prof. DR. Satrio, Kuningan
+                <br />
+                Jakarta Selatan, DKI Jakarta 12950
+              </p>
+            </div>
+            <div>
+              <p className="font-bold text-foreground">Factory</p>
+              <p className="mt-2 leading-[22px]">
+                PT Arbe Chemindo
+                <br />
+                Jl. Jababeka V Blok H-2
+                <br />
+                Kawasan Industrial Jababeka Cikarang, Jawa Barat 17530
+              </p>
+            </div>
+            <div>
+              <p className="font-bold text-foreground">Marketing</p>
+              <p className="mt-2 leading-[22px]">
+                Telephone: (62) (21) 8281354
+                <br />
+                WhatsApp: (62) 82211211911
+                <br />
+                marketing@arbechem.com
+              </p>
+            </div>
+            <div>
+              <p className="font-bold text-foreground">Purchasing</p>
+              <p className="mt-2 leading-[22px]">purchasing@arbechem.com</p>
+            </div>
           </div>
         </aside>
         <section className="industrial-shadow rounded-lg bg-white p-6 md:p-8">
