@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -19,7 +20,6 @@ import {
   Waves,
   Wheat,
 } from "lucide-react";
-import { figmaAssets } from "@/lib/design";
 import { getProduct, products } from "@/lib/data";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -231,6 +231,31 @@ function getApplicationContent(application: string): ApplicationCardContent {
   );
 }
 
+function getApplicationIndustryHref(application: string) {
+  const industryMap: Record<string, string> = {
+    Agriculture: "/industries/agriculture",
+    "Beverage Systems": "/industries/food-beverage",
+    "Cooling Tower Treatment": "/industries/water-treatment",
+    "Feed Additives": "/industries/agriculture",
+    "Food Industry": "/industries/food-beverage",
+    "Food Processing": "/industries/food-beverage",
+    "Hazardous Wastewater Treatment": "/industries/water-treatment",
+    "Industrial Cleaning": "/industries/water-treatment",
+    "Irrigation Algae Control": "/industries/agriculture",
+    "Metal Processing": "/industries/mining",
+    Mining: "/industries/mining",
+    "Pool Treatment": "/industries/water-treatment",
+    "Poultry Sanitation": "/industries/agriculture",
+    Sanitation: "/industries/water-treatment",
+    Textile: "/industries/food-beverage",
+    Texturizing: "/industries/food-beverage",
+    "Wastewater Treatment": "/industries/water-treatment",
+    "Water Treatment": "/industries/water-treatment",
+  };
+
+  return industryMap[application];
+}
+
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
 }
@@ -256,8 +281,6 @@ export default async function ProductDetailPage({
   const product = getProduct(slug);
 
   if (!product) notFound();
-
-  const heroImage = product.slug === "cmc" ? figmaAssets.cmcPowder : product.image;
 
   return (
     <main className="bg-background">
@@ -293,7 +316,7 @@ export default async function ProductDetailPage({
           </div>
         </div>
         <div className="industrial-shadow overflow-hidden rounded-lg bg-white">
-          <img src={heroImage} alt={product.name} className="h-96 w-full object-cover" />
+          <img src={product.image} alt={product.name} className="h-96 w-full object-cover" />
         </div>
       </section>
 
@@ -347,6 +370,7 @@ export default async function ProductDetailPage({
           {product.applications.map((application, index) => {
             const content = getApplicationContent(application);
             const Icon = content.icon;
+            const industryHref = getApplicationIndustryHref(application);
 
             return (
               <article
@@ -365,9 +389,18 @@ export default async function ProductDetailPage({
                 <p className="mt-6 text-xs font-bold uppercase tracking-[1.3px] text-accent">
                   {content.eyebrow}
                 </p>
-                <h3 className="mt-2 text-xl font-bold tracking-[-0.4px] text-foreground">
-                  {application}
-                </h3>
+                {industryHref ? (
+                  <Link
+                    href={industryHref}
+                    className="mt-2 inline-flex text-xl font-bold tracking-[-0.4px] text-foreground underline decoration-primary/25 underline-offset-4 transition hover:text-primary hover:decoration-primary"
+                  >
+                    {application}
+                  </Link>
+                ) : (
+                  <h3 className="mt-2 text-xl font-bold tracking-[-0.4px] text-foreground">
+                    {application}
+                  </h3>
+                )}
                 <p className="mt-3 text-sm leading-[23px] text-muted">
                   {content.description}
                 </p>

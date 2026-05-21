@@ -62,7 +62,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 Request Industry Quote <ArrowRight size={14} />
               </a>
               <Link
-                href="/products"
+                href="#recommended-products"
                 className="rounded-[2px] border-2 border-white/70 bg-white/10 px-7 py-4 text-sm font-bold uppercase tracking-[0.7px] text-white shadow-[0_12px_28px_-20px_rgba(255,255,255,0.8)] backdrop-blur transition hover:border-white hover:bg-white/20"
                 style={{ color: "#ffffff" }}
               >
@@ -118,7 +118,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
         </div>
       </section>
 
-      <section className="agt-container pb-24">
+      <section id="recommended-products" className="agt-container scroll-mt-28 pb-24">
         <div className="mb-8 flex flex-col gap-3 border-b border-line pb-5 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">

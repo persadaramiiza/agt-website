@@ -59,20 +59,24 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <div>
               <p className="font-bold text-foreground">Warehouse</p>
               <p className="mt-2 leading-[22px]">
-                Kawasan Industri Jababeka 2
+                PT. ARBE GLOBAL TRADING
                 <br />
-                Jln. Industri Selatan V blok FF1N
+                Kawasan Jababeka II
                 <br />
-                Pasirsari, Cikarang Sel.
+                Jalan Industri Selatan V Blok FF 1N
+                <br />
+                Desa Pasir Sari, Kecamatan Cikarang Selatan
                 <br />
                 Kabupaten Bekasi, Jawa Barat 17530
-                <br />
-                Office: (021) 50991189
               </p>
             </div>
             <div>
-              <p className="font-bold text-foreground">Purchasing</p>
-              <p className="mt-2 leading-[22px]">admin@arbetrading.com</p>
+              <p className="font-bold text-foreground">Contact</p>
+              <p className="mt-2 leading-[22px]">
+                No. Telp: +62 21 5099 1189
+                <br />
+                admin@arbetrading.com
+              </p>
             </div>
           </div>
         </aside>

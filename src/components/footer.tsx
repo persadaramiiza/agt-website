@@ -59,6 +59,8 @@ export function Footer() {
             Request a Quote
           </Link>
           <p className="mt-4 text-sm leading-[22px] text-[#64748b]">
+            +62 21 5099 1189
+            <br />
             admin@arbetrading.com
           </p>
         </div>

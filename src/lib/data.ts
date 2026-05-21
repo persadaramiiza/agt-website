@@ -1,24 +1,57 @@
 import type { Industry, Product, ProductCategoryGroup, Resource } from "./types";
 
 const productImages = {
-  powderScoop:
-    "https://images.unsplash.com/photo-1693996045463-6ea86d10a2e7?auto=format&fit=crop&w=1200&q=80",
-  powderGranules:
-    "https://images.unsplash.com/photo-1750639096812-6f2b5e6c024b?auto=format&fit=crop&w=1200&q=80",
-  powderLab:
-    "https://images.unsplash.com/photo-1709296167942-799280f2a55c?auto=format&fit=crop&w=1200&q=80",
-  powderBottles:
-    "https://images.unsplash.com/photo-1774169440279-ff1f9ecfc523?auto=format&fit=crop&w=1200&q=80",
-  industrialDrums:
-    "https://images.unsplash.com/photo-1567016958860-87d898933af1?auto=format&fit=crop&w=1200&q=80",
-  waterTreatment:
-    "https://images.unsplash.com/photo-1775704012923-8a94fccad402?auto=format&fit=crop&w=1200&q=80",
+  causticSoda: "/images/products/caustic-soda-98-flake.png",
+  cmc: "/images/products/cmc.png",
+  cornStarch: "/images/products/corn-starch-daesang.jpg",
+  dextroseFufeng: "/images/products/dextrose-monohydrate-fufeng.jpeg",
+  dextroseLihua: "/images/products/dextrose-monohydrate-lihua.webp",
+  glycerin: "/images/products/glycerin-wilmar.jpeg",
+  isolatedSoyaProtein: "/images/products/isolated-soya-protein.png",
+  kaporit: "/images/products/kaporit-60.jpg",
+  maltodextrin: "/images/products/maltodextrin-de-10-12-lihua.jpeg",
+  pac: "/images/products/polyaluminium-chloride.png",
+  tapioka: "/images/products/tapioka-tedco-agri.jpg",
+  tccaGranule: "/images/products/tcca-90-granule.png",
+  tccaPowder: "/images/products/tcca-90-powder.jpg",
+  tccaTablet: "/images/products/tcca-90-tablet-200-gr.jpg",
 };
 
 export const products: Product[] = [
   {
+    slug: "cmc",
+    name: "CMC",
+    category: "Cellulose Derivatives",
+    summary:
+      "Carboxymethyl Cellulose for viscosity control, stabilization, binding, and water retention.",
+    description:
+      "A versatile cellulose derivative used as a rheology modifier, stabilizer, binder, and water-retention aid across food, mining, paper, ceramic, and textile applications.",
+    applications: ["Food Industry", "Mining", "Paper", "Ceramic", "Textile"],
+    specs: [
+      { label: "Viscosity (2% Solution)", value: "50 - 10,000 mPa.s" },
+      { label: "Degree of Substitution", value: "0.7 - 1.2" },
+      { label: "Purity", value: ">= 99.5%" },
+      { label: "Moisture", value: "<= 8.0%" },
+    ],
+    caseExamples: [
+      "Mining flotation programs use CMC as a depressant and process modifier.",
+      "Food producers use food-grade CMC to improve texture, stability, and water retention.",
+      "Textile printing teams use CMC as a printing thickener to improve pattern sharpness and viscosity stability.",
+    ],
+    documents: [
+      { label: "SDS CMC Food Grades", href: "/documents/products/cmc-food-grades-sds.pdf" },
+      { label: "SDS CMC HVT", href: "/documents/products/cmc-hvt-sds.pdf" },
+      { label: "CMC Case Example", href: "/documents/products/cmc-case-example.pdf" },
+      {
+        label: "Arbecel Spec & Application",
+        href: "/documents/products/arbecel-spec-and-application.xlsx",
+      },
+    ],
+    image: productImages.cmc,
+  },
+  {
     slug: "tcca-90-powder",
-    name: "TCCA 90% Powder",
+    name: "Trichloroisocyanuric Acid (TCCA 90%)",
     category: "Water Treatment & Disinfection",
     summary:
       "Powder-grade TCCA for water treatment, wastewater treatment, algae control, and facility disinfection.",
@@ -42,7 +75,7 @@ export const products: Product[] = [
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.powderGranules,
+    image: productImages.tccaPowder,
   },
   {
     slug: "tcca-90-tablet-200-gr",
@@ -67,7 +100,7 @@ export const products: Product[] = [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
       { label: "COA TCCA Tablet", href: "/documents/products/tcca-tablet-coa.pdf" },
     ],
-    image: productImages.industrialDrums,
+    image: productImages.tccaTablet,
   },
   {
     slug: "tcca-90-granul-mesh-5-8",
@@ -90,11 +123,11 @@ export const products: Product[] = [
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.powderGranules,
+    image: productImages.tccaGranule,
   },
   {
     slug: "kaporit-60",
-    name: "Kaporit 60%",
+    name: "Chlorine (Kaporit 60%)",
     category: "Water Treatment & Disinfection",
     summary:
       "Calcium hypochlorite support for water disinfection, pool treatment, sanitation, and wastewater workflows.",
@@ -123,7 +156,31 @@ export const products: Product[] = [
       { label: "MSDS Kaporit 60%", href: "/documents/products/kaporit-60-msds.pdf" },
       { label: "Spec Kaporit 60%", href: "/documents/products/kaporit-60-spec.pdf" },
     ],
-    image: productImages.waterTreatment,
+    image: productImages.kaporit,
+  },
+  {
+    slug: "polyaluminium-chloride",
+    name: "Polyaluminium Chloride",
+    category: "Water Treatment & Disinfection",
+    summary:
+      "Polyaluminium Chloride support for coagulation, clarification, and industrial water-treatment programs.",
+    description:
+      "A water-treatment chemical option for teams that need coagulation and clarification support with documentation for municipal, industrial, and wastewater workflows.",
+    applications: ["Water Treatment", "Wastewater Treatment", "Industrial Cleaning"],
+    specs: [
+      { label: "Product Type", value: "Polyaluminium Chloride" },
+      { label: "Available Grades", value: "PAC HV / PAC LV" },
+      { label: "Use Case", value: "Coagulation support" },
+      { label: "SDS", value: "Available" },
+    ],
+    caseExamples: [
+      "Water-treatment teams use PAC to support coagulation, clarification, and suspended-solid reduction workflows.",
+    ],
+    documents: [
+      { label: "SDS PAC HV", href: "/documents/products/pac-hv-sds.pdf" },
+      { label: "SDS PAC LV", href: "/documents/products/pac-lv-sds.pdf" },
+    ],
+    image: productImages.pac,
   },
   {
     slug: "corn-starch-daesang",
@@ -150,7 +207,7 @@ export const products: Product[] = [
       { label: "MSDS Corn Starch", href: "/documents/products/corn-starch-msds.pdf" },
       { label: "Spec Corn Starch", href: "/documents/products/corn-starch-spec.pdf" },
     ],
-    image: productImages.powderLab,
+    image: productImages.cornStarch,
   },
   {
     slug: "dextrose-monohydrate-fufeng",
@@ -177,7 +234,7 @@ export const products: Product[] = [
       { label: "MSDS Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-msds.pdf" },
       { label: "Spec Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-spec.pdf" },
     ],
-    image: productImages.powderScoop,
+    image: productImages.dextroseFufeng,
   },
   {
     slug: "dextrose-monohydrate-lihua",
@@ -201,7 +258,7 @@ export const products: Product[] = [
       { label: "MSDS Dextrose Lihua", href: "/documents/products/dextrose-lihua-msds.pdf" },
       { label: "Spec Dextrose Lihua", href: "/documents/products/dextrose-lihua-spec.pdf" },
     ],
-    image: productImages.powderScoop,
+    image: productImages.dextroseLihua,
   },
   {
     slug: "isolated-soya-protein",
@@ -228,7 +285,7 @@ export const products: Product[] = [
       { label: "MSDS Isolated Soya Protein", href: "/documents/products/isolated-soya-protein-msds.pdf" },
       { label: "Spec Isolated Soya Protein", href: "/documents/products/isolated-soya-protein-spec.pdf" },
     ],
-    image: productImages.powderBottles,
+    image: productImages.isolatedSoyaProtein,
   },
   {
     slug: "tapioka-tedco-agri",
@@ -254,7 +311,7 @@ export const products: Product[] = [
       { label: "MSDS Tapioka", href: "/documents/products/tapioka-msds.pdf" },
       { label: "Spec Tapioka", href: "/documents/products/tapioka-spec.pdf" },
     ],
-    image: productImages.powderLab,
+    image: productImages.tapioka,
   },
   {
     slug: "tcca-90-granul-mesh-5-15-50kg",
@@ -282,7 +339,7 @@ export const products: Product[] = [
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.industrialDrums,
+    image: productImages.tccaGranule,
   },
   {
     slug: "tcca-90-powder-15kg",
@@ -305,7 +362,7 @@ export const products: Product[] = [
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.powderGranules,
+    image: productImages.tccaPowder,
   },
   {
     slug: "maltodextrin-de-10-12-lihua",
@@ -332,7 +389,7 @@ export const products: Product[] = [
       { label: "MSDS Maltodextrin", href: "/documents/products/maltodextrin-de-10-12-msds.pdf" },
       { label: "Spec Maltodextrin DE 10-12", href: "/documents/products/maltodextrin-de-10-12-spec.pdf" },
     ],
-    image: productImages.powderLab,
+    image: productImages.maltodextrin,
   },
   {
     slug: "glycerin-wilmar",
@@ -359,7 +416,7 @@ export const products: Product[] = [
       { label: "MSDS Glycerin", href: "/documents/products/glycerin-msds.pdf" },
       { label: "Spec Glycerin", href: "/documents/products/glycerin-spec.pdf" },
     ],
-    image: productImages.powderBottles,
+    image: productImages.glycerin,
   },
   {
     slug: "caustic-soda-98-flake",
@@ -385,11 +442,12 @@ export const products: Product[] = [
       { label: "MSDS Caustic Soda", href: "/documents/products/caustic-soda-msds.pdf" },
       { label: "COA Caustic Soda", href: "/documents/products/caustic-soda-coa.pdf" },
     ],
-    image: productImages.industrialDrums,
+    image: productImages.causticSoda,
   },
 ];
 
 const productCategoryOrder = [
+  "Cellulose Derivatives",
   "Water Treatment & Disinfection",
   "Carbohydrates & Starches",
   "Food Proteins & Ingredients",
@@ -397,6 +455,11 @@ const productCategoryOrder = [
 ];
 
 const productCategoryDetails: Record<string, { slug: string; summary: string }> = {
+  "Cellulose Derivatives": {
+    slug: "cellulose-derivatives",
+    summary:
+      "Cellulose-based additives for viscosity control, stabilization, binding, and water retention.",
+  },
   "Water Treatment & Disinfection": {
     slug: "water-treatment-disinfection",
     summary:
@@ -495,16 +558,13 @@ export const industries: Industry[] = [
     ],
     solutions: [
       "Chlorination and disinfection product recommendations.",
-      "TCCA support for selected sanitation and disinfection workflows.",
+      "TCCA, Chlorine, and Polyaluminium Chloride support for selected water-treatment workflows.",
       "Application review for dosage planning and sample qualification.",
     ],
     productSlugs: [
       "tcca-90-powder",
-      "tcca-90-tablet-200-gr",
-      "tcca-90-granul-mesh-5-8",
       "kaporit-60",
-      "tcca-90-granul-mesh-5-15-50kg",
-      "tcca-90-powder-15kg",
+      "polyaluminium-chloride",
     ],
   },
   {
@@ -523,11 +583,11 @@ export const industries: Industry[] = [
       "Supporting metal, mineral, and alumina-related workflows without product mismatch.",
     ],
     solutions: [
+      "CMC support for selected flotation, depressant, and process-modifier applications.",
       "Caustic soda support for selected alumina and industrial alkali workflows.",
       "Kaporit support for selected metal-processing and disinfection needs.",
-      "Technical discussion to align product grade with plant conditions.",
     ],
-    productSlugs: ["caustic-soda-98-flake", "kaporit-60"],
+    productSlugs: ["cmc", "caustic-soda-98-flake", "kaporit-60"],
   },
   {
     slug: "food-beverage",
@@ -545,11 +605,12 @@ export const industries: Industry[] = [
       "Coordinating ingredient documentation for purchasing and QA teams.",
     ],
     solutions: [
-      "Corn starch, tapioca, maltodextrin, and dextrose options for formulation and process needs.",
+      "CMC, corn starch, tapioca, maltodextrin, and dextrose options for formulation and process needs.",
       "Isolated soya protein and glycerin support for texture, binding, protein, and humectant applications.",
       "COA, SDS, packaging, and sample discussion during qualification.",
     ],
     productSlugs: [
+      "cmc",
       "corn-starch-daesang",
       "dextrose-monohydrate-fufeng",
       "dextrose-monohydrate-lihua",
