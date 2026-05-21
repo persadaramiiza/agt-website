@@ -71,18 +71,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </p>
             </div>
             <div>
-              <p className="font-bold text-foreground">Marketing</p>
-              <p className="mt-2 leading-[22px]">
-                Telephone: (62) (21) 8281354
-                <br />
-                WhatsApp: (62) 82211211911
-                <br />
-                marketing@arbechem.com
-              </p>
-            </div>
-            <div>
               <p className="font-bold text-foreground">Purchasing</p>
-              <p className="mt-2 leading-[22px]">purchasing@arbechem.com</p>
+              <p className="mt-2 leading-[22px]">admin@arbetrading.com</p>
             </div>
           </div>
         </aside>
