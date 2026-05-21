@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { ChevronRight, Menu } from "lucide-react";
-import { industries, products } from "@/lib/data";
+import { getProduct, industries, products } from "@/lib/data";
+import type { Product } from "@/lib/types";
 
 const navItems = [
   { href: "/solutions", label: "Solutions" },
@@ -17,9 +21,18 @@ const industryMenuOrder = [
 ];
 
 export function Header() {
+  const [activeIndustrySlug, setActiveIndustrySlug] = useState<string | null>(null);
   const orderedIndustries = industryMenuOrder
     .map((slug) => industries.find((industry) => industry.slug === slug))
     .filter((industry): industry is (typeof industries)[number] => Boolean(industry));
+  const activeIndustry = orderedIndustries.find(
+    (industry) => industry.slug === activeIndustrySlug,
+  );
+  const visibleProducts = activeIndustry
+    ? activeIndustry.productSlugs
+        .map((productSlug) => getProduct(productSlug))
+        .filter((product): product is Product => Boolean(product))
+    : products;
 
   return (
     <header className="site-header sticky top-0 z-40 bg-white/85 shadow-[0_12px_32px_-4px_rgba(25,28,30,0.08)] backdrop-blur-xl">
@@ -42,8 +55,11 @@ export function Header() {
             >
               Products
             </Link>
-            <div className="nav-menu invisible fixed left-1/2 top-16 w-[min(640px,calc(100vw-48px))] -translate-x-1/2 translate-y-3 pt-5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-              <div className="nav-menu-panel industrial-shadow grid grid-cols-[0.8fr_1.2fr] gap-px overflow-hidden rounded-lg border border-[#e0e3e5] bg-[#e0e3e5]">
+            <div className="nav-menu invisible fixed left-1/2 top-16 w-[min(780px,calc(100vw-48px))] -translate-x-1/2 translate-y-3 pt-5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div
+                className="nav-menu-panel industrial-shadow grid grid-cols-[0.72fr_1.28fr] gap-px overflow-hidden rounded-lg border border-[#e0e3e5] bg-[#e0e3e5]"
+                onMouseLeave={() => setActiveIndustrySlug(null)}
+              >
                 <div className="bg-white p-6">
                   <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
                     By Industry
@@ -53,7 +69,13 @@ export function Header() {
                       <Link
                         key={industry.slug}
                         href={`/industries/${industry.slug}`}
-                        className="nav-menu-link flex items-center justify-between rounded-[2px] px-3 py-2 text-sm font-medium text-[#424752] hover:bg-[#f2f4f6] hover:text-primary"
+                        onFocus={() => setActiveIndustrySlug(industry.slug)}
+                        onMouseEnter={() => setActiveIndustrySlug(industry.slug)}
+                        className={`nav-menu-link flex items-center justify-between rounded-[2px] px-3 py-2 text-sm font-medium hover:bg-[#f2f4f6] hover:text-primary ${
+                          activeIndustrySlug === industry.slug
+                            ? "bg-[#f2f4f6] text-primary"
+                            : "text-[#424752]"
+                        }`}
                       >
                         {industry.name}
                         <ChevronRight size={14} />
@@ -62,19 +84,19 @@ export function Header() {
                   </div>
                 </div>
                 <div className="bg-white p-6">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-4">
                     <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
-                      By Product
+                      {activeIndustry ? `For ${activeIndustry.name}` : "By Product"}
                     </p>
                     <Link
-                      href="/products"
+                      href={activeIndustry ? `/industries/${activeIndustry.slug}` : "/products"}
                       className="text-xs font-bold uppercase tracking-[0.7px] text-primary"
                     >
-                      View all
+                      {activeIndustry ? "View industry" : "View all"}
                     </Link>
                   </div>
                   <div className="mt-5 grid grid-cols-2 gap-1">
-                    {products.map((product) => (
+                    {visibleProducts.map((product) => (
                       <Link
                         key={product.slug}
                         href={`/products/${product.slug}`}

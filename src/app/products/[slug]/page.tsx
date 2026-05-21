@@ -112,6 +112,48 @@ const applicationContent: Record<string, ApplicationCardContent> = {
     capability: "Treatment fit",
     icon: Waves,
   },
+  "Wastewater Treatment": {
+    eyebrow: "Effluent Support",
+    description:
+      "Product matching for wastewater routines that need disinfection support and practical documentation.",
+    capability: "Wastewater review",
+    icon: Waves,
+  },
+  "Irrigation Algae Control": {
+    eyebrow: "Algae Control",
+    description:
+      "Support for selecting treatment products used in irrigation channels and field-water management.",
+    capability: "Field-use review",
+    icon: Droplets,
+  },
+  "Production Facility Disinfection": {
+    eyebrow: "Facility Hygiene",
+    description:
+      "Grade and documentation support for disinfection routines in production and processing facilities.",
+    capability: "Sanitation fit",
+    icon: ShieldCheck,
+  },
+  "Pool Treatment": {
+    eyebrow: "Chlorine Stability",
+    description:
+      "Treatment-format discussion for pool and waterpark programs that need reliable chlorine control.",
+    capability: "Dosage planning",
+    icon: Waves,
+  },
+  "Poultry Sanitation": {
+    eyebrow: "Farm Hygiene",
+    description:
+      "Product-fit review for coop, facility, and drinking-water line sanitation needs.",
+    capability: "Farm sanitation",
+    icon: ShieldCheck,
+  },
+  "Cooling Tower Treatment": {
+    eyebrow: "System Hygiene",
+    description:
+      "Support for cooling-tower programs focused on slime, algae, and routine sanitation control.",
+    capability: "Tower review",
+    icon: Factory,
+  },
   Sanitation: {
     eyebrow: "Controlled Disinfection",
     description:
@@ -125,6 +167,41 @@ const applicationContent: Record<string, ApplicationCardContent> = {
       "Product matching for cleaning and treatment routines where stability, form, and supply continuity matter.",
     capability: "Operational support",
     icon: Factory,
+  },
+  "Hazardous Wastewater Treatment": {
+    eyebrow: "Wastewater Control",
+    description:
+      "Chemical-fit support for hazardous wastewater workflows that require careful product and document review.",
+    capability: "Compliance support",
+    icon: ShieldCheck,
+  },
+  "Metal Processing": {
+    eyebrow: "Metal Workflow",
+    description:
+      "Industrial-grade product matching for selected metal-processing and plant sanitation requirements.",
+    capability: "Process review",
+    icon: Hammer,
+  },
+  "Feed Additives": {
+    eyebrow: "Feed Support",
+    description:
+      "Ingredient and document review for feed-related applications and supply qualification.",
+    capability: "Feed fit",
+    icon: Wheat,
+  },
+  Agriculture: {
+    eyebrow: "Crop & Farm Inputs",
+    description:
+      "Product-fit review for agricultural inputs, crop-support uses, and field documentation needs.",
+    capability: "Field application",
+    icon: Wheat,
+  },
+  "Personal Care": {
+    eyebrow: "Care Formulation",
+    description:
+      "Humectant and formulation support for cosmetic, skin-care, and personal-care product development.",
+    capability: "Formulation review",
+    icon: Sparkles,
   },
   "pH Control": {
     eyebrow: "Acidity Adjustment",

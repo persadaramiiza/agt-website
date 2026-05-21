@@ -32,7 +32,7 @@ export const industries = [
   {
     name: "Food & Beverage",
     description:
-      "Stabilizers and texturizers like CMC and Maltodextrin for consistent product quality.",
+      "Starches, sweeteners, proteins, and humectants for consistent product quality.",
   },
   {
     name: "Mining",
@@ -63,22 +63,22 @@ export const approachItems = [
 
 export const solutions = [
   {
-    title: "Oil Drilling Optimization",
+    title: "Industrial Alkali Processing",
     problem:
-      "Drilling fluids must maintain stable viscosity, filtration control, and shale inhibition under changing well conditions. Poor fluid performance can lead to excessive fluid loss, unstable wellbores, higher torque and drag, and increased risk of operational downtime.",
+      "Heavy-industry operations need reliable alkali inputs with consistent documentation, packaging, and supply continuity. Poor grade matching can disrupt plant routines and procurement planning.",
     solution:
-      "AGT supplies high-performance fluid additives that help improve drilling fluid stability, control filtration loss, and support consistent rheology across demanding drilling conditions.",
-    highlight: "CMC",
-    productSlug: "cmc",
+      "AGT supplies industrial chemical options such as caustic soda flakes with application review, documentation support, and practical supply discussion.",
+    highlight: "Caustic Soda 98% Flake",
+    productSlug: "caustic-soda-98-flake",
   },
   {
-    title: "Mining Flotation Efficiency",
+    title: "Water Treatment Reliability",
     problem:
-      "In mineral flotation, unwanted gangue minerals can reduce concentrate quality and lower process efficiency. Variations in ore composition, particle behavior, and reagent performance can also affect recovery rates and overall flotation consistency.",
+      "Water-treatment and sanitation teams need the right chemical form, dosage discussion, and documentation before running recurring chlorination programs.",
     solution:
-      "AGT provides specialized Sodium Carboxymethyl Cellulose grades that function as depressants and process modifiers, helping improve selectivity, reduce unwanted mineral recovery, and support more consistent flotation performance.",
-    highlight: "Sodium Carboxymethyl Cellulose",
-    productSlug: "cmc",
+      "AGT supplies TCCA and kaporit options for process water, wastewater, pool, pond, and facility disinfection workflows.",
+    highlight: "TCCA 90% Powder",
+    productSlug: "tcca-90-powder",
   },
   {
     title: "Food Stabilization Solutions",
@@ -86,8 +86,8 @@ export const solutions = [
       "Processed food and beverage products often face challenges such as inconsistent texture, moisture migration, separation, crystallization, and reduced shelf stability.",
     solution:
       "AGT supplies food-grade ingredients to support texture, body, sweetness, acidity control, moisture management, and product stability.",
-    highlight: "Dextrose Monohydrate",
-    productSlug: "dextrose-monohydrate",
+    highlight: "Dextrose Monohydrate ex Fufeng",
+    productSlug: "dextrose-monohydrate-fufeng",
   },
   {
     title: "Cost Reduction Programs",

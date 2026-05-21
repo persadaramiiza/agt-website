@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { InquiryForm } from "@/components/inquiry-form";
 import { products } from "@/lib/data";
 
@@ -33,7 +34,13 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
       </section>
       <section className="agt-container grid gap-10 py-20 lg:grid-cols-[0.75fr_1.25fr]">
         <aside className="rounded-lg bg-[#f2f4f6] p-8">
-          <p className="text-lg font-bold text-[#1e3a8a]">AGT ARBE CHEMINDO</p>
+          <Image
+            src="/images/brand/agt-logo.png"
+            alt="Arbe Global Trading"
+            width={961}
+            height={186}
+            className="h-12 w-auto"
+          />
           <p className="mt-4 text-sm leading-[22px] text-muted">
             Precision in chemical manufacturing and supply chain solutions for
             modern industrial demands.
@@ -50,13 +57,17 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </p>
             </div>
             <div>
-              <p className="font-bold text-foreground">Factory</p>
+              <p className="font-bold text-foreground">Warehouse</p>
               <p className="mt-2 leading-[22px]">
-                PT Arbe Chemindo
+                Kawasan Industri Jababeka 2
                 <br />
-                Jl. Jababeka V Blok H-2
+                Jln. Industri Selatan V blok FF1N
                 <br />
-                Kawasan Industrial Jababeka Cikarang, Jawa Barat 17530
+                Pasirsari, Cikarang Sel.
+                <br />
+                Kabupaten Bekasi, Jawa Barat 17530
+                <br />
+                Office: (021) 50991189
               </p>
             </div>
             <div>

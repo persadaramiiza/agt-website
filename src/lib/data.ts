@@ -1,4 +1,4 @@
-import type { Industry, Product, Resource } from "./types";
+import type { Industry, Product, ProductCategoryGroup, Resource } from "./types";
 
 const productImages = {
   powderScoop:
@@ -17,108 +17,133 @@ const productImages = {
 
 export const products: Product[] = [
   {
-    slug: "cmc",
-    name: "CMC",
-    category: "Cellulose Derivatives",
+    slug: "tcca-90-powder",
+    name: "TCCA 90% Powder",
+    category: "Water Treatment & Disinfection",
     summary:
-      "Carboxymethyl Cellulose for viscosity control, stabilization, and water retention.",
+      "Powder-grade TCCA for water treatment, wastewater treatment, algae control, and facility disinfection.",
     description:
-      "A high-purity, versatile rheology modifier providing exceptional viscosity control, stabilization, and water retention across industrial applications.",
-    applications: ["Food Industry", "Mining", "Paper", "Ceramic", "Textile"],
+      "A TCCA powder grade for chlorination programs that need practical handling, sanitation support, and documentation for treatment workflows.",
+    applications: [
+      "Water Treatment",
+      "Wastewater Treatment",
+      "Irrigation Algae Control",
+      "Production Facility Disinfection",
+    ],
     specs: [
-      { label: "Viscosity (2% Solution)", value: "50 - 10,000 mPa.s" },
-      { label: "Degree of Substitution", value: "0.7 - 1.2" },
-      { label: "Purity", value: ">= 99.5%" },
-      { label: "Moisture", value: "<= 8.0%" },
+      { label: "Grade", value: "90% powder" },
+      { label: "Specification", value: "Available by COA" },
+      { label: "Use Case", value: "Disinfection support" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
-      "Mining flotation programs using CMC as a depressant and process modifier.",
-      "Ice cream producers use 0.2-0.5% food-grade CMC to improve creamy texture, melt resistance, and shelf-life stability.",
-      "Textile printing teams use CMC as a printing thickener to improve pattern sharpness and viscosity stability.",
+      "Shrimp farms use TCCA powder to sterilize ponds before stocking.",
     ],
     documents: [
-      { label: "SDS CMC Food Grades", href: "/documents/products/cmc-food-grades-sds.pdf" },
-      { label: "SDS CMC HVT", href: "/documents/products/cmc-hvt-sds.pdf" },
-      { label: "CMC Case Example", href: "/documents/products/cmc-case-example.pdf" },
-      {
-        label: "Arbecel Spec & Application",
-        href: "/documents/products/arbecel-spec-and-application.xlsx",
-      },
+      { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.powderScoop,
+    image: productImages.powderGranules,
   },
   {
-    slug: "maltodextrin",
-    name: "Maltodextrine",
-    category: "Food Stabilization",
+    slug: "tcca-90-tablet-200-gr",
+    name: "TCCA 90% Tablet @ 200 gr",
+    category: "Water Treatment & Disinfection",
     summary:
-      "High-purity carbohydrate support for texture, body, and shelf-life control.",
+      "Tablet-grade TCCA for pool, waterpark, poultry-farm, and water-line sanitation.",
     description:
-      "A reliable food and industrial ingredient used to improve mouthfeel, stabilize moisture, and support consistent processing behavior.",
-    applications: ["Food Processing", "Beverage Systems", "Industrial Blends"],
+      "A 200 gram tablet format for teams that need controlled chlorine release, easier dosage handling, and sanitation documentation.",
+    applications: ["Water Treatment", "Pool Treatment", "Poultry Sanitation"],
     specs: [
-      { label: "DE Value", value: "10 - 12" },
-      { label: "Water", value: "<= 6%" },
-      { label: "Solubility", value: ">= 98%" },
-      { label: "pH Value", value: "4.5 - 6.5" },
+      { label: "Grade", value: "90% tablet" },
+      { label: "Tablet Size", value: "200 gr" },
+      { label: "Use Case", value: "Chlorination support" },
+      { label: "COA", value: "Available" },
     ],
     caseExamples: [
-      "Sachet beverage producers use maltodextrin as a carrier and filler.",
-      "Snack manufacturers use maltodextrin in seasoning powder systems.",
-      "Ice cream producers use maltodextrin to improve body and mouthfeel.",
+      "Hotels and waterparks use TCCA tablet 200 gr to maintain stable pool chlorine.",
+      "Poultry farms use TCCA for coop disinfection and drinking-water line sanitation.",
     ],
     documents: [
-      { label: "MSDS Maltodextrin", href: "/documents/products/maltodextrin-de-10-12-msds.pdf" },
-      { label: "Spec Maltodextrin DE 10-12", href: "/documents/products/maltodextrin-de-10-12-spec.pdf" },
+      { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
+      { label: "COA TCCA Tablet", href: "/documents/products/tcca-tablet-coa.pdf" },
     ],
-    image: productImages.powderLab,
+    image: productImages.industrialDrums,
   },
   {
-    slug: "dextrose-monohydrate",
-    name: "Dextrose Monohydrate",
-    category: "Food & Beverage",
+    slug: "tcca-90-granul-mesh-5-8",
+    name: "TCCA 90% Granul Mesh 5-8",
+    category: "Water Treatment & Disinfection",
     summary:
-      "Crystalline carbohydrate ingredient for food, beverage, and fermentation applications.",
+      "Granular TCCA for cooling-tower treatment and sanitation programs requiring controlled dosing.",
     description:
-      "A reliable dextrose grade for teams that need consistent sweetness, fermentation support, and controlled formulation behavior.",
-    applications: ["Food Processing", "Beverage Systems", "Fermentation"],
+      "A granular TCCA option for industrial treatment teams that need algae, slime, and sanitation support in process-water systems.",
+    applications: ["Water Treatment", "Industrial Cleaning", "Cooling Tower Treatment"],
     specs: [
-      { label: "Purity", value: ">= 99.0%" },
-      { label: "Moisture", value: "<= 10.0%" },
-      { label: "pH Value", value: "4.0 - 6.5" },
-      { label: "Packaging", value: "25 kg PP bag" },
+      { label: "Grade", value: "90% granule" },
+      { label: "Mesh", value: "5-8" },
+      { label: "Use Case", value: "Cooling tower support" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
-      "Brown sugar producers use dextrose as a sweetener.",
-      "Hard candy producers use dextrose as a sweetener and bulking agent.",
-      "Dextrose is used in feed additives for livestock and poultry.",
+      "Factories use TCCA granular for cooling tower treatment to prevent slime and algae growth.",
     ],
     documents: [
-      { label: "MSDS Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-msds.pdf" },
-      { label: "Spec Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-spec.pdf" },
-      { label: "MSDS Dextrose Lihua", href: "/documents/products/dextrose-lihua-msds.pdf" },
-      { label: "Spec Dextrose Lihua", href: "/documents/products/dextrose-lihua-spec.pdf" },
+      { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
-    image: productImages.powderScoop,
+    image: productImages.powderGranules,
   },
   {
-    slug: "corn-starch",
-    name: "Corn Starch",
-    category: "Food & Beverage",
+    slug: "kaporit-60",
+    name: "Kaporit 60%",
+    category: "Water Treatment & Disinfection",
     summary:
-      "Starch-based thickening and texturizing support for industrial formulations.",
+      "Calcium hypochlorite support for water disinfection, pool treatment, sanitation, and wastewater workflows.",
     description:
-      "A practical starch ingredient for food stabilization, process consistency, and industrial formulation support.",
-    applications: ["Food Processing", "Texturizing", "Industrial Blends"],
+      "A practical chlorination product for teams managing water treatment, hazardous wastewater, sanitation routines, and selected industrial uses.",
+    applications: [
+      "Water Treatment",
+      "Pool Treatment",
+      "Sanitation",
+      "Metal Processing",
+      "Hazardous Wastewater Treatment",
+    ],
     specs: [
-      { label: "Appearance", value: "White powder" },
-      { label: "Moisture", value: "Max. 13.5 - 14.0%" },
-      { label: "Total Starch", value: "Min. 98.0%" },
-      { label: "Fineness (Mesh 100)", value: "Min. 98.5%" },
+      { label: "Active Chlorine", value: "60%" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
+      { label: "Use Case", value: "Disinfection support" },
+    ],
+    caseExamples: [
+      "PDAM and water-treatment plants use kaporit for chlorination before distribution.",
+      "Food and textile factories use kaporit for liquid-waste treatment before discharge.",
+      "Hospitals use kaporit solution for floor, toilet, and isolation-area disinfection.",
+      "Farmers and aquaculture teams use kaporit for pond and livestock-area sanitation.",
+    ],
+    documents: [
+      { label: "MSDS Kaporit 60%", href: "/documents/products/kaporit-60-msds.pdf" },
+      { label: "Spec Kaporit 60%", href: "/documents/products/kaporit-60-spec.pdf" },
+    ],
+    image: productImages.waterTreatment,
+  },
+  {
+    slug: "corn-starch-daesang",
+    name: "Corn Starch ex Daesang",
+    category: "Carbohydrates & Starches",
+    summary:
+      "Corn starch for food thickening, moisture absorption, processed food formulation, and textile support.",
+    description:
+      "A corn starch ingredient used by food manufacturers for texture and thickening, with selected textile applications for fiber and sizing workflows.",
+    applications: ["Food Processing", "Texturizing", "Industrial Blends", "Textile"],
+    specs: [
+      { label: "Product Type", value: "Corn starch" },
+      { label: "Origin", value: "Daesang" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
       "Sauce and instant soup producers use corn starch as a thickener.",
-      "Fast-food restaurants use corn starch in fried chicken batter coating.",
+      "Fast-food restaurants use corn starch in fried-chicken batter coating.",
+      "Biscuit, noodle, meatball, and processed-food producers use corn starch in dough formulation.",
       "Corn starch is used in yarn sizing for textile manufacturing.",
     ],
     documents: [
@@ -128,57 +153,301 @@ export const products: Product[] = [
     image: productImages.powderLab,
   },
   {
-    slug: "tcca",
-    name: "TCCA 90%",
-    category: "Water Treatment",
+    slug: "dextrose-monohydrate-fufeng",
+    name: "Dextrose Monohydrate ex Fufeng",
+    category: "Carbohydrates & Starches",
     summary:
-      "Chlorination support for water treatment and sanitation workflows.",
+      "Dextrose monohydrate for food and beverage sweetening, feed additives, and plant-growth stimulation.",
     description:
-      "A water-treatment chemical option available in powder, tablet, and granule grades for controlled sanitation, disinfection, and industrial treatment planning.",
-    applications: ["Water Treatment", "Sanitation", "Industrial Cleaning"],
+      "A crystalline carbohydrate ingredient for production teams that need sweetness, bulking behavior, feed support, and consistent documentation.",
+    applications: ["Food Processing", "Beverage Systems", "Feed Additives", "Agriculture"],
     specs: [
-      { label: "Available Grades", value: "Powder, tablet, granule" },
-      { label: "Tablet Size", value: "200 g" },
-      { label: "Granule Mesh", value: "5-8 / 5-15" },
-      { label: "Use Case", value: "Disinfection support" },
+      { label: "Product Type", value: "Dextrose monohydrate" },
+      { label: "Origin", value: "Fufeng" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
-      "Shrimp farms use TCCA powder to sterilize ponds before stocking.",
-      "Hotels and waterparks use TCCA 200 g tablets to maintain stable pool chlorine.",
+      "Brown sugar producers use dextrose as a sweetener.",
+      "Hard-candy producers use dextrose as a sweetener and bulking agent.",
+      "Ice cream producers use dextrose in mix formulation.",
+      "Dextrose is used in feed additives for livestock and poultry.",
+    ],
+    documents: [
+      { label: "MSDS Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-msds.pdf" },
+      { label: "Spec Dextrose Fufeng", href: "/documents/products/dextrose-fufeng-spec.pdf" },
+    ],
+    image: productImages.powderScoop,
+  },
+  {
+    slug: "dextrose-monohydrate-lihua",
+    name: "Dextrose Monohydrate ex Lihua",
+    category: "Carbohydrates & Starches",
+    summary:
+      "Lihua dextrose monohydrate option for carbohydrate, sweetening, and formulation support.",
+    description:
+      "A dextrose monohydrate product option for food, beverage, feed, and selected agricultural formulation needs.",
+    applications: ["Food Processing", "Beverage Systems", "Feed Additives", "Agriculture"],
+    specs: [
+      { label: "Product Type", value: "Dextrose monohydrate" },
+      { label: "Origin", value: "Lihua" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
+    ],
+    caseExamples: [
+      "Used as an alternate dextrose source where buyers need matching documentation and supply options.",
+    ],
+    documents: [
+      { label: "MSDS Dextrose Lihua", href: "/documents/products/dextrose-lihua-msds.pdf" },
+      { label: "Spec Dextrose Lihua", href: "/documents/products/dextrose-lihua-spec.pdf" },
+    ],
+    image: productImages.powderScoop,
+  },
+  {
+    slug: "isolated-soya-protein",
+    name: "Isolated Soya Protein",
+    category: "Food Proteins & Ingredients",
+    summary:
+      "Plant-protein ingredient for meat alternatives, binders, thickeners, and protein beverages.",
+    description:
+      "A soy protein ingredient for manufacturers that need plant-protein content, texture improvement, binding, and ready-to-drink protein applications.",
+    applications: ["Food Processing", "Beverage Systems", "Texturizing"],
+    specs: [
+      { label: "Product Type", value: "Isolated soya protein" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
+      { label: "Use Case", value: "Protein and binder support" },
+    ],
+    caseExamples: [
+      "Sausage and nugget producers use ISP to improve texture and yield.",
+      "Meatball factories use ISP as an additional binder.",
+      "ISP is used in ready-to-drink protein beverages.",
+      "ISP is used in selected mayonnaise and dressing applications.",
+    ],
+    documents: [
+      { label: "MSDS Isolated Soya Protein", href: "/documents/products/isolated-soya-protein-msds.pdf" },
+      { label: "Spec Isolated Soya Protein", href: "/documents/products/isolated-soya-protein-spec.pdf" },
+    ],
+    image: productImages.powderBottles,
+  },
+  {
+    slug: "tapioka-tedco-agri",
+    name: "Tapioka Tedco Agri",
+    category: "Carbohydrates & Starches",
+    summary:
+      "Tapioca starch for food thickening, bakery binding, gluten-free alternatives, and textile production support.",
+    description:
+      "A tapioca product for food and beverage teams needing thickening, stabilizing, binding, and selected textile applications.",
+    applications: ["Food Processing", "Texturizing", "Industrial Blends", "Textile"],
+    specs: [
+      { label: "Product Type", value: "Tapioca starch" },
+      { label: "Brand", value: "Tedco Agri" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
+    ],
+    caseExamples: [
+      "Meatball producers use tapioca as a primary binder in formulation.",
+      "Cracker factories use tapioca as a primary base material.",
+      "Tapioca is used in noodle and vermicelli formulations.",
+    ],
+    documents: [
+      { label: "MSDS Tapioka", href: "/documents/products/tapioka-msds.pdf" },
+      { label: "Spec Tapioka", href: "/documents/products/tapioka-spec.pdf" },
+    ],
+    image: productImages.powderLab,
+  },
+  {
+    slug: "tcca-90-granul-mesh-5-15-50kg",
+    name: "TCCA 90% Granul Mesh 5-15 (50 kg)",
+    category: "Water Treatment & Disinfection",
+    summary:
+      "50 kg granular TCCA for water treatment, wastewater treatment, irrigation algae control, and facility disinfection.",
+    description:
+      "A 50 kg granular TCCA option for buyers who need larger packaging for recurring treatment and sanitation workflows.",
+    applications: [
+      "Water Treatment",
+      "Wastewater Treatment",
+      "Irrigation Algae Control",
+      "Production Facility Disinfection",
+    ],
+    specs: [
+      { label: "Grade", value: "90% granule" },
+      { label: "Mesh", value: "5-15" },
+      { label: "Packaging", value: "50 kg" },
+      { label: "Specification", value: "Available" },
+    ],
+    caseExamples: [
       "Factories use TCCA granular for cooling tower treatment to prevent slime and algae growth.",
     ],
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
-      { label: "COA TCCA Tablet", href: "/documents/products/tcca-tablet-coa.pdf" },
+    ],
+    image: productImages.industrialDrums,
+  },
+  {
+    slug: "tcca-90-powder-15kg",
+    name: "TCCA 90% Powder (15 kg)",
+    category: "Water Treatment & Disinfection",
+    summary:
+      "15 kg TCCA powder packaging for water treatment, pond sterilization, and facility disinfection.",
+    description:
+      "A 15 kg powder packaging option for teams that need TCCA powder in a smaller operational pack size.",
+    applications: ["Water Treatment", "Wastewater Treatment", "Production Facility Disinfection"],
+    specs: [
+      { label: "Grade", value: "90% powder" },
+      { label: "Packaging", value: "15 kg" },
+      { label: "Specification", value: "Available by COA" },
+      { label: "MSDS", value: "Available" },
+    ],
+    caseExamples: [
+      "Shrimp farms use TCCA powder to sterilize ponds before stocking.",
+    ],
+    documents: [
+      { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
     ],
     image: productImages.powderGranules,
   },
   {
-    slug: "citric-acid",
-    name: "Citric Acid",
-    category: "Food & Beverage",
+    slug: "maltodextrin-de-10-12-lihua",
+    name: "Maltodextrin DE 10-12 ex Lihua",
+    category: "Carbohydrates & Starches",
     summary:
-      "Acidity regulator and chelating support for food, beverage, and industrial formulations.",
+      "Maltodextrin DE 10-12 for beverages, feed supplements, bakery volume, and texture support.",
     description:
-      "A versatile acidulant for pH control, preservation support, acidity control, and formulation adjustment across selected applications.",
-    applications: ["Food Processing", "Beverage Systems", "pH Control", "Industrial Formulation"],
+      "A maltodextrin ingredient for sachet beverages, milk formula, snack seasoning, ice cream, and bakery systems requiring body and carrier performance.",
+    applications: ["Food Processing", "Beverage Systems", "Feed Additives", "Texturizing"],
     specs: [
-      { label: "Form", value: "Crystalline powder" },
-      { label: "Packaging", value: "25 kg bag" },
-      { label: "Use Case", value: "Acidity regulator" },
-      { label: "Documentation", value: "Available on request" },
+      { label: "DE Value", value: "10 - 12" },
+      { label: "Origin", value: "Lihua" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
-      "Food and beverage production teams use citric acid for pH and acidity control.",
-      "Industrial formulation teams use citric acid for chelation and adjustment.",
+      "Sachet beverage producers use maltodextrin as a carrier and filler.",
+      "Milk-formula producers use maltodextrin as an additional carbohydrate source.",
+      "Snack factories use maltodextrin in seasoning powder.",
+      "Maltodextrin improves body and mouthfeel in ice cream.",
     ],
     documents: [
-      { label: "MSDS available on request", href: "/contact?product=Citric%20Acid" },
-      { label: "Spec available on request", href: "/contact?product=Citric%20Acid" },
+      { label: "MSDS Maltodextrin", href: "/documents/products/maltodextrin-de-10-12-msds.pdf" },
+      { label: "Spec Maltodextrin DE 10-12", href: "/documents/products/maltodextrin-de-10-12-spec.pdf" },
+    ],
+    image: productImages.powderLab,
+  },
+  {
+    slug: "glycerin-wilmar",
+    name: "Glycerin ex Wilmar",
+    category: "Industrial & Personal Care Chemicals",
+    summary:
+      "Glycerin for cosmetics, skin care, food humectants, soap, textile softening, vape liquids, and biofuel workflows.",
+    description:
+      "A glycerin product for manufacturers that need moisturizing, humectant, solvent, softening, or carrier functionality across selected formulations.",
+    applications: ["Personal Care", "Food Processing", "Industrial Formulation", "Textile"],
+    specs: [
+      { label: "Product Type", value: "Glycerin" },
+      { label: "Origin", value: "Wilmar" },
+      { label: "Specification", value: "Available" },
+      { label: "MSDS", value: "Available" },
+    ],
+    caseExamples: [
+      "Lotion and cream producers use glycerin as a moisturizing agent.",
+      "Transparent-soap producers use glycerin to improve soap moisture.",
+      "Glycerin is used in cigarette and shisha tobacco products.",
+      "Cake and confectionery producers use glycerin as a humectant.",
+    ],
+    documents: [
+      { label: "MSDS Glycerin", href: "/documents/products/glycerin-msds.pdf" },
+      { label: "Spec Glycerin", href: "/documents/products/glycerin-spec.pdf" },
     ],
     image: productImages.powderBottles,
   },
+  {
+    slug: "caustic-soda-98-flake",
+    name: "Caustic Soda 98% Flake",
+    category: "Industrial & Personal Care Chemicals",
+    summary:
+      "Caustic soda flakes for soap and detergent production, textile scouring and bleaching, and alumina processing.",
+    description:
+      "A high-strength caustic soda flake product for industrial teams that need alkali input for saponification, textile processing, and selected alumina workflows.",
+    applications: ["Industrial Formulation", "Textile", "Mining"],
+    specs: [
+      { label: "Purity", value: "98%" },
+      { label: "Form", value: "Flake" },
+      { label: "Specification", value: "Available" },
+      { label: "COA", value: "Available" },
+    ],
+    caseExamples: [
+      "Soap producers use caustic soda for saponification of vegetable oils.",
+      "Textile factories use caustic soda for mercerizing cotton fabric.",
+      "Caustic soda is used in the Bayer process for extracting alumina from bauxite.",
+    ],
+    documents: [
+      { label: "MSDS Caustic Soda", href: "/documents/products/caustic-soda-msds.pdf" },
+      { label: "COA Caustic Soda", href: "/documents/products/caustic-soda-coa.pdf" },
+    ],
+    image: productImages.industrialDrums,
+  },
 ];
+
+const productCategoryOrder = [
+  "Water Treatment & Disinfection",
+  "Carbohydrates & Starches",
+  "Food Proteins & Ingredients",
+  "Industrial & Personal Care Chemicals",
+];
+
+const productCategoryDetails: Record<string, { slug: string; summary: string }> = {
+  "Water Treatment & Disinfection": {
+    slug: "water-treatment-disinfection",
+    summary:
+      "Chlorination and sanitation products for process water, wastewater, pools, ponds, and facility disinfection.",
+  },
+  "Carbohydrates & Starches": {
+    slug: "carbohydrates-starches",
+    summary:
+      "Food, beverage, and industrial ingredients for body, texture, carrier systems, and process consistency.",
+  },
+  "Food Proteins & Ingredients": {
+    slug: "food-proteins-ingredients",
+    summary:
+      "Protein and functional food ingredients for binding, texture, and beverage applications.",
+  },
+  "Industrial & Personal Care Chemicals": {
+    slug: "industrial-personal-care-chemicals",
+    summary:
+      "Industrial formulation inputs for personal care, soap, textile, and selected heavy-industry workflows.",
+  },
+};
+
+function slugifyCategory(category: string) {
+  return category
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+export function getProductCategoryGroups(): ProductCategoryGroup[] {
+  const categoryNames = Array.from(
+    new Set([...productCategoryOrder, ...products.map((product) => product.category)]),
+  );
+
+  return categoryNames
+    .map((category) => {
+      const groupedProducts = products.filter((product) => product.category === category);
+      const details = productCategoryDetails[category];
+
+      return {
+        slug: details?.slug ?? slugifyCategory(category),
+        name: category,
+        summary:
+          details?.summary ??
+          "Product options grouped by chemistry, application fit, and documentation needs.",
+        products: groupedProducts,
+      };
+    })
+    .filter((group) => group.products.length > 0);
+}
 
 export const industries: Industry[] = [
   {
@@ -186,22 +455,28 @@ export const industries: Industry[] = [
     name: "Agriculture",
     eyebrow: "Crop & Soil Performance",
     summary:
-      "Chemical and cellulose-based support for more consistent agricultural inputs and field performance.",
+      "Treatment, sanitation, and input-support products for agricultural and aquaculture operations.",
     description:
-      "AGT helps agriculture-focused manufacturers and distributors qualify stabilizers, binders, and formulation aids that improve handling, dispersion, and product consistency from production to field application.",
+      "AGT helps agriculture-focused buyers qualify products for pond preparation, algae control, sanitation routines, feed-related inputs, and selected crop-support applications.",
     image:
       "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
     challenges: [
-      "Maintaining consistent viscosity and suspension in agrochemical formulations.",
-      "Reducing separation, clumping, and handling issues during storage.",
-      "Supporting reliable delivery across humid and demanding field conditions.",
+      "Maintaining clean ponds, irrigation lines, and livestock facilities.",
+      "Selecting the right disinfection grade and packaging for field conditions.",
+      "Coordinating documentation for feed, farm, and aquaculture supply workflows.",
     ],
     solutions: [
-      "CMC-based viscosity and suspension control for liquid formulations.",
-      "Starch and carbohydrate ingredients for binding and carrier applications.",
+      "TCCA and kaporit support for pond, water-line, and facility sanitation.",
+      "Dextrose support for feed additive and crop-input discussions.",
       "Technical review to match grade, packaging, and documentation needs.",
     ],
-    productSlugs: ["corn-starch", "dextrose-monohydrate", "cmc"],
+    productSlugs: [
+      "tcca-90-powder",
+      "tcca-90-granul-mesh-5-8",
+      "kaporit-60",
+      "dextrose-monohydrate-fufeng",
+      "dextrose-monohydrate-lihua",
+    ],
   },
   {
     slug: "water-treatment",
@@ -219,33 +494,40 @@ export const industries: Industry[] = [
       "Selecting chemicals with the right documentation and supply reliability.",
     ],
     solutions: [
-      "Coagulation, flocculation, and treatment additive recommendations.",
+      "Chlorination and disinfection product recommendations.",
       "TCCA support for selected sanitation and disinfection workflows.",
       "Application review for dosage planning and sample qualification.",
     ],
-    productSlugs: ["tcca", "citric-acid", "cmc"],
+    productSlugs: [
+      "tcca-90-powder",
+      "tcca-90-tablet-200-gr",
+      "tcca-90-granul-mesh-5-8",
+      "kaporit-60",
+      "tcca-90-granul-mesh-5-15-50kg",
+      "tcca-90-powder-15kg",
+    ],
   },
   {
     slug: "mining",
     name: "Mining",
     eyebrow: "Mineral Processing",
     summary:
-      "Mining formulation support for recovery, separation, binding, and process efficiency.",
+      "Industrial chemical support for mineral processing, metal processing, and alumina workflows.",
     description:
-      "For mineral processors, AGT focuses on practical chemical programs that support flotation, pelletizing, water management, and operational consistency across variable ore conditions.",
+      "For mining and mineral-processing teams, AGT focuses on practical industrial chemicals that support alkali processing, metal processing, and selected plant-level workflows.",
     image:
       "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80",
     challenges: [
-      "Ore variability that affects recovery rate and reagent consumption.",
-      "Binder and depressant performance under demanding process conditions.",
-      "Water reuse targets that require stable treatment chemistry.",
+      "Maintaining consistent chemical supply for demanding plant operations.",
+      "Matching industrial grades to process requirements and documentation needs.",
+      "Supporting metal, mineral, and alumina-related workflows without product mismatch.",
     ],
     solutions: [
-      "CMC support for binding, depressant, and selected flotation applications.",
-      "Citric acid support for selected pH adjustment and chelation workflows.",
+      "Caustic soda support for selected alumina and industrial alkali workflows.",
+      "Kaporit support for selected metal-processing and disinfection needs.",
       "Technical discussion to align product grade with plant conditions.",
     ],
-    productSlugs: ["cmc", "citric-acid"],
+    productSlugs: ["caustic-soda-98-flake", "kaporit-60"],
   },
   {
     slug: "food-beverage",
@@ -263,16 +545,18 @@ export const industries: Industry[] = [
       "Coordinating ingredient documentation for purchasing and QA teams.",
     ],
     solutions: [
-      "CMC, maltodextrine, and starch support for stabilizing and texturizing.",
-      "Dextrose, citric acid, maltodextrine, and corn starch options for formulation and process needs.",
+      "Corn starch, tapioca, maltodextrin, and dextrose options for formulation and process needs.",
+      "Isolated soya protein and glycerin support for texture, binding, protein, and humectant applications.",
       "COA, SDS, packaging, and sample discussion during qualification.",
     ],
     productSlugs: [
-      "cmc",
-      "maltodextrin",
-      "dextrose-monohydrate",
-      "corn-starch",
-      "citric-acid",
+      "corn-starch-daesang",
+      "dextrose-monohydrate-fufeng",
+      "dextrose-monohydrate-lihua",
+      "isolated-soya-protein",
+      "tapioka-tedco-agri",
+      "maltodextrin-de-10-12-lihua",
+      "glycerin-wilmar",
     ],
   },
 ];
@@ -280,16 +564,16 @@ export const industries: Industry[] = [
 export const resources: Resource[] = [
   {
     slug: "mining-flocculation-techniques",
-    title: "Maximizing Mining Efficiency: Advanced Flocculation Techniques",
+    title: "Industrial Chemical Fit for Mineral Processing",
     category: "Mining Efficiency",
     excerpt:
-      "How polymeric flocculants transform mineral processing, improving recovery rates while reducing water consumption.",
+      "How the right industrial chemical grade supports mineral processing, metal processing, and plant reliability.",
     publishedAt: "2024-10-15",
     readTime: "4 min read",
     body: [
-      "Mining operations often face variable ore behavior, inconsistent recovery, and water-management pressure. A small mismatch in reagent selection can increase dosage, lower concentrate quality, and create avoidable downtime.",
-      "CMC and related polymer programs can support depressant behavior, slurry stability, and separation consistency when the grade is matched to the ore profile and operating condition.",
-      "AGT helps customers review application context, target recovery, dosage range, documentation needs, and supply continuity before moving into sample qualification.",
+      "Mining and mineral-processing operations often face variable process conditions, documentation requirements, and supply-continuity pressure.",
+      "Products such as caustic soda and selected chlorination products can support specific alumina, metal-processing, sanitation, and plant-level workflows when matched to the operating context.",
+      "AGT helps customers review application context, grade requirements, documentation needs, packaging, and supply continuity before moving into sample qualification.",
     ],
   },
   {
@@ -297,7 +581,7 @@ export const resources: Resource[] = [
     title: "Sustainable Water Treatment Solutions for Heavy Industry",
     category: "Water Treatment",
     excerpt:
-      "Circular economy principles in industrial wastewater management using advanced CMC formulations.",
+      "Industrial wastewater and sanitation workflows using fit-for-purpose chlorination products.",
     publishedAt: "2024-10-12",
     readTime: "3 min read",
     body: [

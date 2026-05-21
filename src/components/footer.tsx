@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { products } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -37,12 +38,14 @@ export function Footer() {
             Products
           </p>
           <div className="mt-5 grid gap-3 text-sm text-[#64748b] underline">
-            <Link href="/products/cmc">CMC</Link>
-            <Link href="/products/maltodextrin">Maltodextrin</Link>
-            <Link href="/products/dextrose-monohydrate">Dextrose Monohydrate</Link>
-            <Link href="/products/corn-starch">Corn Starch</Link>
-            <Link href="/products/tcca">TCCA</Link>
-            <Link href="/products/citric-acid">Citric Acid</Link>
+            {products.slice(0, 6).map((product) => (
+              <Link key={product.slug} href={`/products/${product.slug}`}>
+                {product.name}
+              </Link>
+            ))}
+            <Link href="/products" className="font-bold text-primary">
+              View all products
+            </Link>
           </div>
         </div>
         <div>
@@ -56,9 +59,7 @@ export function Footer() {
             Request a Quote
           </Link>
           <p className="mt-4 text-sm leading-[22px] text-[#64748b]">
-            marketing@arbechem.com
-            <br />
-            (62) (21) 8281354
+            admin@arbetrading.com
           </p>
         </div>
       </div>

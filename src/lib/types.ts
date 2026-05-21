@@ -16,6 +16,13 @@ export type Product = {
   image: string;
 };
 
+export type ProductCategoryGroup = {
+  slug: string;
+  name: string;
+  summary: string;
+  products: Product[];
+};
+
 export type Resource = {
   slug: string;
   title: string;
