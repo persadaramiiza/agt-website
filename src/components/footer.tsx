@@ -19,7 +19,7 @@ export function Footer() {
             industries across Southeast Asia.
           </p>
           <p className="mt-4 text-xs leading-5 text-[#94a3b8]">
-            Copyright 2024 Arbe Chemindo. Reliable Chemicals. Delivered with Precision.
+            Copyright 2026 Arbe Chemindo. Reliable Chemicals. Delivered with Precision.
           </p>
         </div>
         <div>
