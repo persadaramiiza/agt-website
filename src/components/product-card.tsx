@@ -20,7 +20,9 @@ export function ProductCard({ product }: { product: Product }) {
         </span>
       </div>
       <div className="p-5">
-        <h2 className="text-xl font-semibold">{product.name}</h2>
+        <h2 className="text-lg font-bold leading-[1.25] tracking-[-0.2px] text-foreground">
+          {product.name}
+        </h2>
         <p className="mt-3 text-sm leading-6 text-muted">{product.summary}</p>
         <div className="mt-4 grid gap-2 border-t border-line pt-4">
           {product.specs.slice(0, 2).map((spec) => (

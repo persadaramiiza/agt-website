@@ -256,6 +256,18 @@ function getApplicationIndustryHref(application: string) {
   return industryMap[application];
 }
 
+function getProductTitleClass(name: string) {
+  if (name.length > 58) {
+    return "text-3xl leading-[1.08] tracking-[-0.9px] sm:text-4xl md:text-[46px] md:leading-[1.05]";
+  }
+
+  if (name.length > 38) {
+    return "text-4xl leading-[1.05] tracking-[-1.1px] sm:text-5xl md:text-[54px] md:leading-[1.02]";
+  }
+
+  return "text-5xl leading-none tracking-[-1.5px] sm:text-6xl md:text-7xl md:tracking-[-2.5px]";
+}
+
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
 }
@@ -281,18 +293,19 @@ export default async function ProductDetailPage({
   const product = getProduct(slug);
 
   if (!product) notFound();
+  const productTitleClass = getProductTitleClass(product.name);
 
   return (
     <main className="bg-background">
-      <section className="agt-container grid gap-12 py-20 lg:grid-cols-2 lg:py-24">
-        <div className="self-center">
+      <section className="agt-container grid gap-10 py-16 lg:grid-cols-[minmax(0,0.94fr)_minmax(420px,1.06fr)] lg:items-center lg:py-20">
+        <div className="min-w-0 self-center">
           <span className="inline-flex rounded-[2px] border border-[#c2c6d4]/20 bg-line px-3 py-1 text-xs uppercase tracking-[1.2px] text-muted">
             {product.category}
           </span>
-          <h1 className="mt-6 text-6xl font-black leading-none tracking-[-3px] text-foreground md:text-7xl">
+          <h1 className={`mt-6 max-w-[760px] text-balance break-words font-black text-foreground ${productTitleClass}`}>
             {product.name}
           </h1>
-          <h2 className="mt-3 text-3xl font-bold tracking-[-0.9px] text-primary md:text-4xl">
+          <h2 className="mt-4 text-2xl font-bold tracking-[-0.5px] text-primary md:text-3xl">
             {product.slug === "cmc" ? "Cellulose Derivatives" : product.category}
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-[29px] text-muted">

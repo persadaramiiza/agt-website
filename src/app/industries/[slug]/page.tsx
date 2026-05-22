@@ -161,7 +161,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
               <p className="text-xs font-bold uppercase tracking-[1px] text-primary">
                 {product.category}
               </p>
-              <h3 className="mt-3 text-xl font-bold group-hover:text-primary">
+              <h3 className="mt-3 text-lg font-bold leading-[1.28] tracking-[-0.2px] group-hover:text-primary">
                 {product.name}
               </h3>
               <p className="mt-3 text-sm leading-6 text-muted">{product.summary}</p>
