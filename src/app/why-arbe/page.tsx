@@ -8,7 +8,6 @@ import {
   Globe2,
   ShieldCheck,
 } from "lucide-react";
-import { figmaAssets } from "@/lib/design";
 
 export const metadata: Metadata = {
   title: "Why Arbe",
@@ -20,7 +19,7 @@ export default function WhyArbePage() {
     <main className="bg-background">
       <section className="relative overflow-hidden py-32">
         <img
-          src={figmaAssets.whyHero}
+          src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/pabrik%20arbe.jpeg"
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -99,42 +98,19 @@ export default function WhyArbePage() {
             </div>
           </div>
         </div>
-        <div className="relative overflow-hidden rounded-lg border border-[#d6dde7] bg-white p-4 shadow-[0_22px_56px_-34px_rgba(0,63,135,0.55)] lg:col-span-7">
-          <div className="grid h-full min-h-[500px] gap-4 md:grid-cols-[1.3fr_0.7fr]">
-            <div className="relative overflow-hidden rounded-md bg-line">
-              <img
-                src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/pabrik%20arbe.jpeg"
-                alt="Arbe manufacturing facility"
-                className="h-full min-h-[500px] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.62)_100%)]" />
-              <div className="absolute bottom-5 left-5 right-5 rounded bg-white/88 p-5 backdrop-blur-xl">
-                <h3 className="flex items-center gap-2 text-lg font-bold text-primary">
-                  <Globe2 size={20} /> Arbechem Group
-                </h3>
-                <p className="mt-2 text-sm leading-[22px] text-muted">
-                  Scaled manufacturing capacity is paired with localized
-                  chemical distribution for Indonesian and Southeast Asian
-                  partners.
-                </p>
-              </div>
-            </div>
-            <div className="grid gap-4">
-              <div className="flex items-center justify-center rounded-md border border-[#d6dde7] bg-white p-5">
-                <img
-                  src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/logo.png"
-                  alt="Arbecel"
-                  className="max-h-28 w-full object-contain"
-                />
-              </div>
-              <div className="overflow-hidden rounded-md border border-[#d6dde7] bg-[#f2f4f6]">
-                <img
-                  src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/cmc%20dt-1000.png"
-                  alt="Arbecel CMC product"
-                  className="h-full min-h-72 w-full object-cover"
-                />
-              </div>
-            </div>
+        <div className="relative overflow-hidden rounded-lg border border-[#d6dde7] bg-white shadow-[0_22px_56px_-34px_rgba(0,63,135,0.55)] lg:col-span-7">
+          <img
+            src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/%5B0%5D%20You%20Grow%2C%20We%20Grow.jpg"
+            alt="Arbe team at manufacturing facility"
+            className="h-full min-h-[560px] w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.28)_100%)]" />
+          <div className="absolute right-5 top-5 rounded bg-white/90 p-4 shadow-[0_18px_42px_-28px_rgba(0,63,135,0.55)] backdrop-blur-xl">
+            <img
+              src="/images/brand/agt-logo.png"
+              alt="Arbe Global Trading"
+              className="h-12 w-auto"
+            />
           </div>
         </div>
       </section>

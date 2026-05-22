@@ -13,14 +13,14 @@ const productImages = {
   pac: "/images/products/polyaluminium-chloride.png",
   tapioka: "/images/products/tapioka-tedco-agri.jpg",
   tccaGranule: "/images/products/tcca-90-granule.png",
-  tccaPowder: "/images/products/tcca-90-powder.jpg",
+  tccaPowder: "/images/products/tcca-90-granule.png",
   tccaTablet: "/images/products/tcca-90-tablet-200-gr.jpg",
 };
 
 export const products: Product[] = [
   {
     slug: "cmc",
-    name: "CMC",
+    name: "Carboxymethyl Cellulose (CMC)",
     category: "Cellulose Derivatives",
     summary:
       "Carboxymethyl Cellulose for viscosity control, stabilization, binding, and water retention.",
@@ -51,7 +51,7 @@ export const products: Product[] = [
   },
   {
     slug: "tcca-90-powder",
-    name: "Trichloroisocyanuric Acid (TCCA 90%)",
+    name: "Trichloroisocyanuric Acid (TCCA 90% Powder)",
     category: "Water Treatment & Disinfection",
     summary:
       "Powder-grade TCCA for water treatment, wastewater treatment, algae control, and facility disinfection.",
@@ -79,7 +79,7 @@ export const products: Product[] = [
   },
   {
     slug: "tcca-90-tablet-200-gr",
-    name: "TCCA 90% Tablet @ 200 gr",
+    name: "Trichloroisocyanuric Acid Tablet (TCCA 90%, 200 gr)",
     category: "Water Treatment & Disinfection",
     summary:
       "Tablet-grade TCCA for pool, waterpark, poultry-farm, and water-line sanitation.",
@@ -104,7 +104,7 @@ export const products: Product[] = [
   },
   {
     slug: "tcca-90-granul-mesh-5-8",
-    name: "TCCA 90% Granul Mesh 5-8",
+    name: "Trichloroisocyanuric Acid Granule (TCCA 90%, Mesh 5-8)",
     category: "Water Treatment & Disinfection",
     summary:
       "Granular TCCA for cooling-tower treatment and sanitation programs requiring controlled dosing.",
@@ -127,7 +127,7 @@ export const products: Product[] = [
   },
   {
     slug: "kaporit-60",
-    name: "Chlorine (Kaporit 60%)",
+    name: "Chlorine/Kaporit (60%)",
     category: "Water Treatment & Disinfection",
     summary:
       "Calcium hypochlorite support for water disinfection, pool treatment, sanitation, and wastewater workflows.",
@@ -160,7 +160,7 @@ export const products: Product[] = [
   },
   {
     slug: "polyaluminium-chloride",
-    name: "Polyaluminium Chloride",
+    name: "Polyaluminium Chloride (PAC)",
     category: "Water Treatment & Disinfection",
     summary:
       "Polyaluminium Chloride support for coagulation, clarification, and industrial water-treatment programs.",
@@ -184,7 +184,7 @@ export const products: Product[] = [
   },
   {
     slug: "corn-starch-daesang",
-    name: "Corn Starch ex Daesang",
+    name: "Corn Starch/Pati Jagung (Daesang)",
     category: "Carbohydrates & Starches",
     summary:
       "Corn starch for food thickening, moisture absorption, processed food formulation, and textile support.",
@@ -211,7 +211,7 @@ export const products: Product[] = [
   },
   {
     slug: "dextrose-monohydrate-fufeng",
-    name: "Dextrose Monohydrate ex Fufeng",
+    name: "Dextrose Monohydrate (Fufeng)",
     category: "Carbohydrates & Starches",
     summary:
       "Dextrose monohydrate for food and beverage sweetening, feed additives, and plant-growth stimulation.",
@@ -238,7 +238,7 @@ export const products: Product[] = [
   },
   {
     slug: "dextrose-monohydrate-lihua",
-    name: "Dextrose Monohydrate ex Lihua",
+    name: "Dextrose Monohydrate (Lihua)",
     category: "Carbohydrates & Starches",
     summary:
       "Lihua dextrose monohydrate option for carbohydrate, sweetening, and formulation support.",
@@ -262,7 +262,7 @@ export const products: Product[] = [
   },
   {
     slug: "isolated-soya-protein",
-    name: "Isolated Soya Protein",
+    name: "Isolated Soya Protein (ISP)",
     category: "Food Proteins & Ingredients",
     summary:
       "Plant-protein ingredient for meat alternatives, binders, thickeners, and protein beverages.",
@@ -289,7 +289,7 @@ export const products: Product[] = [
   },
   {
     slug: "tapioka-tedco-agri",
-    name: "Tapioka Tedco Agri",
+    name: "Tapioca Starch/Tepung Tapioka (Tedco Agri)",
     category: "Carbohydrates & Starches",
     summary:
       "Tapioca starch for food thickening, bakery binding, gluten-free alternatives, and textile production support.",
@@ -315,7 +315,7 @@ export const products: Product[] = [
   },
   {
     slug: "tcca-90-granul-mesh-5-15-50kg",
-    name: "TCCA 90% Granul Mesh 5-15 (50 kg)",
+    name: "Trichloroisocyanuric Acid Granule (TCCA 90%, Mesh 5-15, 50 kg)",
     category: "Water Treatment & Disinfection",
     summary:
       "50 kg granular TCCA for water treatment, wastewater treatment, irrigation algae control, and facility disinfection.",
@@ -343,7 +343,7 @@ export const products: Product[] = [
   },
   {
     slug: "tcca-90-powder-15kg",
-    name: "TCCA 90% Powder (15 kg)",
+    name: "Trichloroisocyanuric Acid Powder (TCCA 90%, 15 kg)",
     category: "Water Treatment & Disinfection",
     summary:
       "15 kg TCCA powder packaging for water treatment, pond sterilization, and facility disinfection.",
@@ -366,7 +366,7 @@ export const products: Product[] = [
   },
   {
     slug: "maltodextrin-de-10-12-lihua",
-    name: "Maltodextrin DE 10-12 ex Lihua",
+    name: "Maltodextrin (DE 10-12, Lihua)",
     category: "Carbohydrates & Starches",
     summary:
       "Maltodextrin DE 10-12 for beverages, feed supplements, bakery volume, and texture support.",
@@ -393,7 +393,7 @@ export const products: Product[] = [
   },
   {
     slug: "glycerin-wilmar",
-    name: "Glycerin ex Wilmar",
+    name: "Glycerin/Gliserin (Wilmar)",
     category: "Industrial & Personal Care Chemicals",
     summary:
       "Glycerin for cosmetics, skin care, food humectants, soap, textile softening, vape liquids, and biofuel workflows.",
@@ -420,7 +420,7 @@ export const products: Product[] = [
   },
   {
     slug: "caustic-soda-98-flake",
-    name: "Caustic Soda 98% Flake",
+    name: "Sodium Hydroxide/Caustic Soda Flake (98%)",
     category: "Industrial & Personal Care Chemicals",
     summary:
       "Caustic soda flakes for soap and detergent production, textile scouring and bleaching, and alumina processing.",

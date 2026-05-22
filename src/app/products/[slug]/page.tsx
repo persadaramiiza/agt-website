@@ -293,7 +293,7 @@ export default async function ProductDetailPage({
             {product.name}
           </h1>
           <h2 className="mt-3 text-3xl font-bold tracking-[-0.9px] text-primary md:text-4xl">
-            {product.name === "CMC" ? "Carboxymethyl Cellulose" : product.category}
+            {product.slug === "cmc" ? "Cellulose Derivatives" : product.category}
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-[29px] text-muted">
             {product.description}
@@ -315,8 +315,12 @@ export default async function ProductDetailPage({
             ) : null}
           </div>
         </div>
-        <div className="industrial-shadow overflow-hidden rounded-lg bg-white">
-          <img src={product.image} alt={product.name} className="h-96 w-full object-cover" />
+        <div className="industrial-shadow flex h-96 items-center justify-center overflow-hidden rounded-lg border border-[#e1e6ec] bg-white p-8">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="max-h-full max-w-full object-contain"
+          />
         </div>
       </section>
 

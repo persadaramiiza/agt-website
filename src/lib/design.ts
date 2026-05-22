@@ -68,7 +68,7 @@ export const solutions = [
       "Heavy-industry operations need reliable alkali inputs with consistent documentation, packaging, and supply continuity. Poor grade matching can disrupt plant routines and procurement planning.",
     solution:
       "AGT supplies industrial chemical options such as caustic soda flakes with application review, documentation support, and practical supply discussion.",
-    highlight: "Caustic Soda 98% Flake",
+    highlight: "Sodium Hydroxide/Caustic Soda Flake (98%)",
     productSlug: "caustic-soda-98-flake",
   },
   {
@@ -77,7 +77,7 @@ export const solutions = [
       "Water-treatment and sanitation teams need the right chemical form, dosage discussion, and documentation before running recurring chlorination programs.",
     solution:
       "AGT supplies TCCA and kaporit options for process water, wastewater, pool, pond, and facility disinfection workflows.",
-    highlight: "TCCA 90% Powder",
+    highlight: "Trichloroisocyanuric Acid (TCCA 90% Powder)",
     productSlug: "tcca-90-powder",
   },
   {

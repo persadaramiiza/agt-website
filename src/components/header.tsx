@@ -22,6 +22,7 @@ const industryMenuOrder = [
 
 export function Header() {
   const [activeIndustrySlug, setActiveIndustrySlug] = useState<string | null>(null);
+  const [isProductMenuOpen, setIsProductMenuOpen] = useState(false);
   const orderedIndustries = industryMenuOrder
     .map((slug) => industries.find((industry) => industry.slug === slug))
     .filter((industry): industry is (typeof industries)[number] => Boolean(industry));
@@ -33,6 +34,10 @@ export function Header() {
         .map((productSlug) => getProduct(productSlug))
         .filter((product): product is Product => Boolean(product))
     : products;
+  const closeProductMenu = () => {
+    setActiveIndustrySlug(null);
+    setIsProductMenuOpen(false);
+  };
 
   return (
     <header className="site-header sticky top-0 z-40 bg-white/85 shadow-[0_12px_32px_-4px_rgba(25,28,30,0.08)] backdrop-blur-xl">
@@ -48,17 +53,31 @@ export function Header() {
           />
         </Link>
         <nav className="hidden h-full items-center gap-8 md:flex">
-          <div className="group relative flex h-full items-center">
+          <div
+            className="group relative flex h-full items-center"
+            onMouseEnter={() => setIsProductMenuOpen(true)}
+            onMouseLeave={closeProductMenu}
+            onPointerEnter={() => setIsProductMenuOpen(true)}
+          >
             <Link
               href="/products"
               className="nav-link"
+              onFocus={() => setIsProductMenuOpen(true)}
+              onMouseEnter={() => setIsProductMenuOpen(true)}
+              onPointerEnter={() => setIsProductMenuOpen(true)}
+              onClick={closeProductMenu}
             >
               Products
             </Link>
-            <div className="nav-menu invisible fixed left-1/2 top-16 w-[min(780px,calc(100vw-48px))] -translate-x-1/2 translate-y-3 pt-5 opacity-0 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+            <div
+              className={`nav-menu fixed left-1/2 top-16 w-[min(780px,calc(100vw-48px))] -translate-x-1/2 pt-5 transition duration-200 ${
+                isProductMenuOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible translate-y-3 opacity-0 pointer-events-none"
+              }`}
+            >
               <div
                 className="nav-menu-panel industrial-shadow grid grid-cols-[0.72fr_1.28fr] gap-px overflow-hidden rounded-lg border border-[#e0e3e5] bg-[#e0e3e5]"
-                onMouseLeave={() => setActiveIndustrySlug(null)}
               >
                 <div className="bg-white p-6">
                   <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
@@ -69,6 +88,7 @@ export function Header() {
                       <Link
                         key={industry.slug}
                         href={`/industries/${industry.slug}`}
+                        onClick={closeProductMenu}
                         onFocus={() => setActiveIndustrySlug(industry.slug)}
                         onMouseEnter={() => setActiveIndustrySlug(industry.slug)}
                         className={`nav-menu-link flex items-center justify-between rounded-[2px] px-3 py-2 text-sm font-medium hover:bg-[#f2f4f6] hover:text-primary ${
@@ -91,6 +111,7 @@ export function Header() {
                     <Link
                       href={activeIndustry ? `/industries/${activeIndustry.slug}` : "/products"}
                       className="text-xs font-bold uppercase tracking-[0.7px] text-primary"
+                      onClick={closeProductMenu}
                     >
                       {activeIndustry ? "View industry" : "View all"}
                     </Link>
@@ -101,6 +122,7 @@ export function Header() {
                         key={product.slug}
                         href={`/products/${product.slug}`}
                         className="nav-menu-link rounded-[2px] px-3 py-2 text-sm font-medium text-[#424752] hover:bg-[#f2f4f6] hover:text-primary"
+                        onClick={closeProductMenu}
                       >
                         {product.name}
                       </Link>
