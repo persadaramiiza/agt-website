@@ -522,7 +522,7 @@ export const industries: Industry[] = [
     description:
       "AGT helps agriculture-focused buyers qualify products for pond preparation, algae control, sanitation routines, feed-related inputs, and selected crop-support applications.",
     image:
-      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
+      "/images/resources/pertanian.png",
     challenges: [
       "Maintaining clean ponds, irrigation lines, and livestock facilities.",
       "Selecting the right disinfection grade and packaging for field conditions.",
@@ -550,7 +550,7 @@ export const industries: Industry[] = [
     description:
       "AGT supports teams working on process water, wastewater, and sanitation programs with practical product options and technical discussion around dosage, handling, and documentation.",
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+      "/images/resources/pengelolaan%20air.png",
     challenges: [
       "Managing turbidity, organic load, and changing feed-water conditions.",
       "Maintaining sanitation targets without disrupting plant operations.",
@@ -576,7 +576,7 @@ export const industries: Industry[] = [
     description:
       "For mining and mineral-processing teams, AGT focuses on practical industrial chemicals that support alkali processing, metal processing, and selected plant-level workflows.",
     image:
-      "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80",
+      "/images/resources/tambang.png",
     challenges: [
       "Maintaining consistent chemical supply for demanding plant operations.",
       "Matching industrial grades to process requirements and documentation needs.",
@@ -598,7 +598,7 @@ export const industries: Industry[] = [
     description:
       "AGT supplies food and beverage manufacturers with stabilizers, carbohydrate ingredients, and acidulants used to improve consistency, processing behavior, and finished product quality.",
     image:
-      "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80",
+      "/images/resources/makanan.png",
     challenges: [
       "Controlling texture, body, and moisture behavior across batches.",
       "Maintaining shelf-life and sensory consistency in processed products.",

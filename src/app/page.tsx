@@ -1,35 +1,35 @@
 import Link from "next/link";
-import { ArrowRight, Check, Download } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Download,
+  Droplets,
+  Leaf,
+  Pickaxe,
+  Utensils,
+} from "lucide-react";
 import { approachItems } from "@/lib/design";
+import { industries } from "@/lib/data";
 
-const heroIndustryCards = [
-  {
-    slug: "agriculture",
-    name: "Agriculture",
-    image: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    slug: "water-treatment",
-    name: "Water Treatment",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    slug: "mining",
-    name: "Mining",
-    image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    slug: "food-beverage",
-    name: "Food & Beverage",
-    image: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80",
-  },
+const heroIndustryOrder = [
+  { slug: "agriculture", icon: Leaf },
+  { slug: "water-treatment", icon: Droplets },
+  { slug: "mining", icon: Pickaxe },
+  { slug: "food-beverage", icon: Utensils },
 ];
 
 export default function Home() {
+  const heroIndustryCards = heroIndustryOrder
+    .map((item) => {
+      const industry = industries.find((entry) => entry.slug === item.slug);
+      return industry ? { ...industry, icon: item.icon } : null;
+    })
+    .filter((item): item is NonNullable<typeof item> => Boolean(item));
+
   return (
     <main>
       <section className="relative overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#003f87_0%,#0056b3_58%,#74b7e8_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,#003f87_0%,#0056b3_56%,#89c5ef_100%)]" />
         <div className="absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(255,255,255,0.55)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.55)_1px,transparent_1px)] [background-size:72px_72px]" />
         <div className="absolute bottom-0 right-0 h-2/3 w-2/3 bg-[linear-gradient(120deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.16)_100%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
@@ -61,27 +61,46 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="industrial-shadow grid overflow-hidden rounded-[2px] border border-white/30 bg-white/35 p-px sm:grid-cols-2">
               {heroIndustryCards.map((card) => (
-                <Link
-                  href={`/industries/${card.slug}`}
-                  key={card.name}
-                  className="group industrial-shadow relative h-36 overflow-hidden rounded-[2px] bg-black sm:h-44 lg:h-[30vh] lg:min-h-44 lg:max-h-64"
-                >
-                  <img
-                    src={card.image}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-[rgba(0,63,135,0.42)]" />
-                  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/72 to-transparent" />
-                  <div className="relative flex h-full items-end p-4 sm:p-5">
-                    <h2 className="text-lg font-bold text-white drop-shadow sm:text-2xl">
-                      {card.name}
-                    </h2>
-                  </div>
-                </Link>
+                (() => {
+                  const Icon = card.icon;
+
+                  return (
+                    <Link
+                      href={`/industries/${card.slug}`}
+                      key={card.name}
+                      className="group relative min-h-44 overflow-hidden bg-[#003f87] sm:min-h-52 lg:min-h-[218px]"
+                    >
+                      <img
+                        src={card.image}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-[linear-gradient(105deg,rgba(0,41,88,0.92)_0%,rgba(0,63,135,0.64)_48%,rgba(0,63,135,0.18)_100%)] transition duration-500 group-hover:bg-[linear-gradient(105deg,rgba(0,41,88,0.86)_0%,rgba(0,63,135,0.56)_48%,rgba(0,63,135,0.12)_100%)]" />
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_24%,rgba(255,255,255,0.18),transparent_26%)]" />
+                      <div className="relative flex h-full flex-col justify-end p-5 text-white md:p-6">
+                        <Icon size={30} strokeWidth={1.7} />
+                        <span className="mt-3 block h-0.5 w-12 bg-accent" />
+                        <h2 className="mt-3 text-xl font-black tracking-[-0.2px] drop-shadow sm:text-2xl">
+                          {card.name}
+                        </h2>
+                        <p className="mt-2 max-w-[260px] text-[11px] font-medium leading-[18px] text-[#e6efff] sm:text-xs sm:leading-5">
+                          {card.summary}
+                        </p>
+                      </div>
+                    </Link>
+                  );
+                })()
               ))}
+              <div className="col-span-full flex items-center justify-between bg-[linear-gradient(90deg,#004a9d_0%,#0067c5_100%)] px-5 py-2.5 sm:px-6">
+                <img
+                  src="/images/brand/agt-logo.png"
+                  alt="Arbe Global Trading"
+                  className="h-7 w-auto brightness-0 invert sm:h-8"
+                />
+                <span className="h-0.5 w-16 bg-accent" />
+              </div>
             </div>
           </div>
         </div>

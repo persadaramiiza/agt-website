@@ -1,13 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Factory, FlaskConical } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Droplets,
+  Factory,
+  FlaskConical,
+  Leaf,
+  Pickaxe,
+  Utensils,
+} from "lucide-react";
 import { getIndustry, getProduct, industries } from "@/lib/data";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import type { Product } from "@/lib/types";
 
 type IndustryPageProps = {
   params: Promise<{ slug: string }>;
+};
+
+const industryHeroIcons: Record<string, LucideIcon> = {
+  agriculture: Leaf,
+  "food-beverage": Utensils,
+  mining: Pickaxe,
+  "water-treatment": Droplets,
 };
 
 export function generateStaticParams() {
@@ -37,45 +54,47 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
   const relatedProducts = industry.productSlugs
     .map((productSlug) => getProduct(productSlug))
     .filter((product): product is Product => Boolean(product));
+  const HeroIcon = industryHeroIcons[industry.slug] ?? Factory;
 
   return (
     <main className="bg-background">
-      <section className="relative overflow-hidden bg-primary">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,63,135,0.96),rgba(0,86,179,0.74)),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.26),transparent_42%)]" />
-        <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.52)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.52)_1px,transparent_1px)] [background-size:72px_72px]" />
-        <div className="agt-container relative grid gap-12 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
-          <div className="self-center">
-            <span className="inline-flex rounded-[2px] bg-white/14 px-3 py-1 text-xs font-bold uppercase tracking-[1.2px] text-white">
+      <section className="relative overflow-hidden bg-[#003f87]">
+        <img
+          src={industry.image}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,41,88,0.95)_0%,rgba(0,63,135,0.8)_42%,rgba(0,86,179,0.36)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_24%,rgba(255,255,255,0.2),transparent_24%)]" />
+        <div className="absolute inset-0 opacity-[0.1] [background-image:linear-gradient(rgba(255,255,255,0.52)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.52)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <div className="agt-container relative flex min-h-[560px] items-end py-16 lg:min-h-[620px] lg:py-20">
+          <div className="max-w-3xl text-white">
+            <HeroIcon size={44} strokeWidth={1.65} />
+            <span className="mt-4 block h-0.5 w-14 bg-accent" />
+            <span className="mt-7 inline-flex rounded-[2px] bg-white/12 px-3 py-1 text-[11px] font-bold uppercase tracking-[1.2px] text-white backdrop-blur">
               {industry.eyebrow}
             </span>
-            <h1 className="mt-6 text-5xl font-black leading-none tracking-[-2px] text-white md:text-7xl">
+            <h1 className="mt-4 text-4xl font-black leading-none tracking-[-1.2px] md:text-6xl">
               {industry.name}
             </h1>
-            <p className="mt-6 max-w-2xl text-xl leading-8 text-[#d7e2ff]">
+            <p className="mt-5 max-w-2xl text-lg font-medium leading-7 text-[#e6efff]">
               {industry.summary}
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href={buildWhatsAppUrl(`${industry.name} industry solutions`)}
-                className="cta-red inline-flex items-center gap-2 rounded-[2px] bg-accent px-7 py-4 text-sm font-bold uppercase tracking-[0.7px] shadow-lg"
+                className="cta-red inline-flex items-center gap-2 rounded-[2px] bg-accent px-6 py-3 text-xs font-bold uppercase tracking-[0.7px] shadow-lg"
               >
                 Request Industry Quote <ArrowRight size={14} />
               </a>
               <Link
                 href="#recommended-products"
-                className="rounded-[2px] border-2 border-white/70 bg-white/10 px-7 py-4 text-sm font-bold uppercase tracking-[0.7px] text-white shadow-[0_12px_28px_-20px_rgba(255,255,255,0.8)] backdrop-blur transition hover:border-white hover:bg-white/20"
+                className="rounded-[2px] border-2 border-white/70 bg-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.7px] text-white shadow-[0_12px_28px_-20px_rgba(255,255,255,0.8)] backdrop-blur transition hover:border-white hover:bg-white/20"
                 style={{ color: "#ffffff" }}
               >
                 View Products
               </Link>
             </div>
-          </div>
-          <div className="industrial-shadow overflow-hidden rounded-lg bg-black">
-            <img
-              src={industry.image}
-              alt={industry.name}
-              className="h-[360px] w-full object-cover md:h-[520px]"
-            />
           </div>
         </div>
       </section>
