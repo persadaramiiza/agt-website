@@ -105,11 +105,11 @@ export default function WhyArbePage() {
             className="h-full min-h-[560px] w-full object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.28)_100%)]" />
-          <div className="absolute right-5 top-5 rounded bg-white/90 p-4 shadow-[0_18px_42px_-28px_rgba(0,63,135,0.55)] backdrop-blur-xl">
+          <div className="absolute right-5 top-5">
             <img
-              src="/images/brand/agt-logo.png"
-              alt="Arbe Global Trading"
-              className="h-12 w-auto"
+              src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/logo.png"
+              alt="Arbecel"
+              className="h-20 w-auto drop-shadow-[0_12px_24px_rgba(0,41,88,0.35)]"
             />
           </div>
         </div>
