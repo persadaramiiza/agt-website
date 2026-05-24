@@ -227,6 +227,16 @@ a {
   stroke: #ffffff !important;
 }
 
+.approach-range-cta,
+.approach-range-cta:visited,
+.approach-range-cta:hover,
+.approach-range-cta:focus-visible,
+.approach-range-cta *,
+.approach-range-cta svg {
+  color: #003f87 !important;
+  stroke: #003f87 !important;
+}
+
 button,
 input,
 textarea,

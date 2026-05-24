@@ -1,14 +1,15 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Check,
-  Download,
+  ClipboardCheck,
   Droplets,
   Leaf,
+  PackageCheck,
   Pickaxe,
+  ShieldCheck,
+  Truck,
   Utensils,
 } from "lucide-react";
-import { approachItems } from "@/lib/design";
 import { industries } from "@/lib/data";
 
 const heroIndustryOrder = [
@@ -16,6 +17,34 @@ const heroIndustryOrder = [
   { slug: "water-treatment", icon: Droplets },
   { slug: "mining", icon: Pickaxe },
   { slug: "food-beverage", icon: Utensils },
+];
+
+const approachPillars = [
+  {
+    title: "Specification Fit Before Price",
+    body: "We help buyers match grade, purity, viscosity, packaging, and document requirements before quoting so the lowest price does not become the wrong material.",
+    metric: "Grade-first",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Supply That Can Be Planned",
+    body: "AGT coordinates stock discussion, lead time, and shipment readiness early, giving procurement teams clearer buying windows and fewer last-minute substitutions.",
+    metric: "Lead-time aware",
+    icon: Truck,
+  },
+  {
+    title: "Documents Ready for QA",
+    body: "SDS, specifications, product references, and application notes are kept close to the product conversation so purchasing, QA, and production can move together.",
+    metric: "QA-ready",
+    icon: ShieldCheck,
+  },
+];
+
+const supplyMilestones = [
+  "Application and grade review",
+  "Specification and document matching",
+  "Quote, stock, and packaging alignment",
+  "Delivery coordination and reorder support",
 ];
 
 export default function Home() {
@@ -107,78 +136,109 @@ export default function Home() {
       </section>
 
       <section className="bg-white py-20 lg:py-24">
-        <div className="agt-container grid gap-12 lg:grid-cols-2">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
-              The AGT Approach
-            </p>
-            <h2 className="mt-4 text-4xl font-bold leading-[1.12]">
-              Competitive by price.
-              <span className="block">Reliable by supply.</span>
-            </h2>
-            <p className="mt-6 text-lg leading-[29px] text-muted">
-              We don&apos;t just supply chemicals; we integrate into your supply
-              chain to solve friction points. Our partners are guaranteed
-              reliable access to quality chemical materials, responsive lead
-              times, and competitive pricing, helping your business operate
-              smoothly and scale with confidence.
-            </p>
-            <div className="mt-10 grid gap-4">
-              {approachItems.map((item, index) => (
-                <div
-                  key={item.title}
-                  className="flex gap-4 rounded bg-[#f2f4f6] p-6"
-                >
-                  <span className="flex size-8 shrink-0 items-center justify-center rounded bg-white text-primary">
-                    <Check size={14} />
-                  </span>
-                  <div>
-                    <h3 className="font-bold">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-5 text-muted">
-                      {item.body}
+        <div className="agt-container">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(440px,1.08fr)] lg:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[1.2px] text-accent">
+                The AGT Approach
+              </p>
+              <h2 className="mt-4 max-w-2xl text-4xl font-black leading-[1.08] tracking-[-0.8px] md:text-5xl">
+                Chemical supply built for procurement confidence.
+              </h2>
+              <p className="mt-6 max-w-xl text-lg leading-[29px] text-muted">
+                AGT connects buyers with the right chemical grade, ready
+                documentation, and clear delivery planning so purchasing teams
+                can move faster without compromising production quality.
+              </p>
+              <div className="mt-8 grid grid-cols-3 overflow-hidden rounded-lg border border-[#dde3ea] bg-[#dde3ea]">
+                {[
+                  ["4", "Core industries"],
+                  ["17+", "Product lines"],
+                  ["QA", "Document support"],
+                ].map(([value, label]) => (
+                  <div key={label} className="bg-white px-4 py-5">
+                    <p className="text-3xl font-black tracking-[-1px] text-primary">
+                      {value}
+                    </p>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.8px] text-muted">
+                      {label}
                     </p>
                   </div>
-                  <span className="ml-auto font-mono text-xs text-[#727784]">
-                    0{index + 1}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-5">
+              {approachPillars.map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <article
+                    key={item.title}
+                    className="group grid gap-5 rounded-lg border border-[#dde3ea] bg-[#f8fafc] p-6 shadow-[0_18px_42px_-34px_rgba(15,35,63,0.5)] transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-white md:grid-cols-[auto_minmax(0,1fr)_auto]"
+                  >
+                    <div className="flex size-12 items-center justify-center rounded-md border border-primary/10 bg-white text-primary transition duration-300 group-hover:bg-primary group-hover:text-white">
+                      <Icon size={23} strokeWidth={2.1} />
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold uppercase tracking-[1.1px] text-accent">
+                        0{index + 1} / {item.metric}
+                      </p>
+                      <h3 className="mt-2 text-xl font-black tracking-[-0.35px]">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-muted">
+                        {item.body}
+                      </p>
+                    </div>
+                    <ArrowRight
+                      size={18}
+                      className="hidden self-center text-primary transition duration-300 group-hover:translate-x-1 md:block"
+                    />
+                  </article>
+                );
+              })}
             </div>
           </div>
-          <div className="industrial-shadow self-center rounded-lg bg-[#eceef0] p-8">
-            <div className="flex items-center justify-between border-b border-[#c2c6d4]/30 pb-5">
-              <span className="text-xs font-bold uppercase tracking-[1.2px] text-muted">
-                Featured Spec
-              </span>
-              <span className="rounded-[2px] bg-accent/10 px-2 py-1 text-[10px] font-bold uppercase text-accent">
-                High Impact
-              </span>
-            </div>
-            <h3 className="mt-8 text-3xl font-black">PAC-LV</h3>
-            <p className="mt-2 text-sm uppercase tracking-[0.7px] text-muted">
-              Polyanionic Cellulose
-            </p>
-            <dl className="my-8 grid gap-6 sm:grid-cols-2">
-              {[
-                ["Viscosity (2%)", "145 cps"],
-                ["Degree of Substitution", "0.9"],
-                ["Purity", "96 - 99%"],
-                ["Moisture", "< 8.0%"],
-              ].map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-xs uppercase tracking-[0.6px] text-[#727784]">
-                    {label}
-                  </dt>
-                  <dd className="mt-1 font-medium">{value}</dd>
+
+          <div className="mt-12 overflow-hidden rounded-lg border border-[#dce3eb] bg-white shadow-[0_24px_54px_-42px_rgba(0,63,135,0.55)]">
+            <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
+              <div className="bg-primary p-7 text-white md:p-8">
+                <div className="flex size-12 items-center justify-center rounded-md bg-white/10">
+                  <PackageCheck size={24} />
                 </div>
-              ))}
-            </dl>
-            <div className="flex items-center justify-between rounded border-l-4 border-primary bg-white px-5 py-4">
-              <div>
-                <p className="text-sm font-bold">Technical Data Sheet</p>
-                <p className="text-xs text-muted">PDF - 2.4 MB</p>
+                <h3 className="mt-5 text-2xl font-black tracking-[-0.45px]">
+                  From requirement to repeat supply
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[#dbeafe]">
+                  The buying process is managed around technical fit, document
+                  readiness, commercial clarity, and continuity after the first
+                  order.
+                </p>
+                <Link
+                  href="/products"
+                  className="approach-range-cta mt-6 inline-flex min-h-12 w-fit min-w-[220px] items-center justify-center gap-2 rounded-[2px] border border-white bg-white px-5 py-3 text-xs font-black uppercase tracking-[1px] shadow-[0_14px_28px_-20px_rgba(0,0,0,0.55)] transition hover:-translate-y-0.5 hover:bg-[#f8fafc]"
+                >
+                  View Product Range
+                  <ArrowRight size={14} />
+                </Link>
               </div>
-              <Download size={16} className="text-primary" />
+
+              <div className="grid bg-[#f8fafc] sm:grid-cols-2 lg:grid-cols-4">
+                {supplyMilestones.map((milestone, index) => (
+                  <div
+                    key={milestone}
+                    className="min-h-36 border-b border-[#dde3ea] bg-white p-6 text-foreground sm:border-r lg:border-b-0"
+                  >
+                    <p className="font-mono text-xs font-bold text-accent">
+                      STEP {String(index + 1).padStart(2, "0")}
+                    </p>
+                    <p className="mt-8 text-base font-black leading-6 tracking-[-0.2px] text-primary">
+                      {milestone}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
