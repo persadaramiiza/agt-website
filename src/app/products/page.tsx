@@ -29,6 +29,8 @@ export default function ProductsPage() {
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href={buildWhatsAppUrl("AGT product portfolio")}
+            target="_blank"
+            rel="noopener noreferrer"
             className="cta-red inline-flex rounded-[2px] bg-accent px-7 py-3 text-sm font-bold uppercase tracking-[0.7px] text-white"
           >
             Request an Instant Quote

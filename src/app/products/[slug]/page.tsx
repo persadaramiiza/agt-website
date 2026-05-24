@@ -314,6 +314,8 @@ export default async function ProductDetailPage({
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href={buildWhatsAppUrl(product.name)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-red rounded-[2px] bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-white shadow-[0_4px_7px_rgba(187,0,33,0.39)]"
             >
               Request an Instant Quote
@@ -321,6 +323,8 @@ export default async function ProductDetailPage({
             {product.documents[0] ? (
               <a
                 href={product.documents[0].href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-[2px] border border-[#c2c6d4]/30 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
                 Download Document
@@ -459,6 +463,8 @@ export default async function ProductDetailPage({
               <a
                 key={document.href}
                 href={document.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
                 {index === 0 ? <FileText size={16} /> : <Download size={16} />}

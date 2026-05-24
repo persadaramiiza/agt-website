@@ -37,8 +37,8 @@ export function Footer() {
           <p className="text-sm font-bold uppercase tracking-[0.7px] text-[#1e3a8a]">
             Products
           </p>
-          <div className="mt-5 grid gap-3 text-sm text-[#64748b] underline">
-            {products.slice(0, 6).map((product) => (
+          <div className="mt-5 grid gap-x-5 gap-y-3 text-sm text-[#64748b] underline sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+            {products.map((product) => (
               <Link key={product.slug} href={`/products/${product.slug}`}>
                 {product.name}
               </Link>

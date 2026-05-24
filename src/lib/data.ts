@@ -65,7 +65,7 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Grade", value: "90% powder" },
-      { label: "Specification", value: "Available by COA" },
+      { label: "Specification", value: "Available" },
       { label: "Use Case", value: "Disinfection support" },
       { label: "MSDS", value: "Available" },
     ],
@@ -90,7 +90,7 @@ export const products: Product[] = [
       { label: "Grade", value: "90% tablet" },
       { label: "Tablet Size", value: "200 gr" },
       { label: "Use Case", value: "Chlorination support" },
-      { label: "COA", value: "Available" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
       "Hotels and waterparks use TCCA tablet 200 gr to maintain stable pool chlorine.",
@@ -98,7 +98,6 @@ export const products: Product[] = [
     ],
     documents: [
       { label: "MSDS TCCA", href: "/documents/products/tcca-msds.pdf" },
-      { label: "COA TCCA Tablet", href: "/documents/products/tcca-tablet-coa.pdf" },
     ],
     image: productImages.tccaTablet,
   },
@@ -353,7 +352,7 @@ export const products: Product[] = [
     specs: [
       { label: "Grade", value: "90% powder" },
       { label: "Packaging", value: "15 kg" },
-      { label: "Specification", value: "Available by COA" },
+      { label: "Specification", value: "Available" },
       { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
@@ -431,7 +430,7 @@ export const products: Product[] = [
       { label: "Purity", value: "98%" },
       { label: "Form", value: "Flake" },
       { label: "Specification", value: "Available" },
-      { label: "COA", value: "Available" },
+      { label: "MSDS", value: "Available" },
     ],
     caseExamples: [
       "Soap producers use caustic soda for saponification of vegetable oils.",
@@ -440,7 +439,6 @@ export const products: Product[] = [
     ],
     documents: [
       { label: "MSDS Caustic Soda", href: "/documents/products/caustic-soda-msds.pdf" },
-      { label: "COA Caustic Soda", href: "/documents/products/caustic-soda-coa.pdf" },
     ],
     image: productImages.causticSoda,
   },
@@ -558,12 +556,17 @@ export const industries: Industry[] = [
     ],
     solutions: [
       "Chlorination and disinfection product recommendations.",
-      "TCCA, Chlorine, and Polyaluminium Chloride support for selected water-treatment workflows.",
+      "TCCA, Chlorine, Polyaluminium Chloride, and Caustic Soda support for selected water-treatment workflows.",
       "Application review for dosage planning and sample qualification.",
     ],
     productSlugs: [
       "tcca-90-powder",
+      "tcca-90-tablet-200-gr",
+      "tcca-90-granul-mesh-5-8",
+      "tcca-90-granul-mesh-5-15-50kg",
+      "tcca-90-powder-15kg",
       "kaporit-60",
+      "caustic-soda-98-flake",
       "polyaluminium-chloride",
     ],
   },
@@ -607,7 +610,7 @@ export const industries: Industry[] = [
     solutions: [
       "CMC, corn starch, tapioca, maltodextrin, and dextrose options for formulation and process needs.",
       "Isolated soya protein and glycerin support for texture, binding, protein, and humectant applications.",
-      "COA, SDS, packaging, and sample discussion during qualification.",
+      "SDS, specification, packaging, and sample discussion during qualification.",
     ],
     productSlugs: [
       "cmc",
@@ -648,7 +651,7 @@ export const resources: Resource[] = [
     body: [
       "Heavy industry water-treatment programs need stable disinfection, practical handling, and documentation that supports plant-level compliance workflows.",
       "Products such as TCCA and Kaporit can support sanitation, algae control, swimming pool treatment, process-water programs, and wastewater disinfection when applied with the right dosage plan.",
-      "Before requesting a quote, buyers should prepare water profile, application target, preferred form, monthly volume, packaging needs, and required MSDS or COA documentation.",
+      "Before requesting a quote, buyers should prepare water profile, application target, preferred form, monthly volume, packaging needs, and required MSDS documentation.",
     ],
   },
   {

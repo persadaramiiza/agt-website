@@ -150,7 +150,7 @@ export function ResourceExplorer({ resources }: { resources: Resource[] }) {
             <FileText size={30} />
             <h2 className="mt-5 text-2xl font-bold">Technical Data Sheets</h2>
             <p className="mt-3 text-sm leading-5 text-[#acc7ff]">
-              Access product pages with MSDS, SDS, COA, specification, and case-example files.
+              Access product pages with MSDS, SDS, specification, and case-example files.
             </p>
             <Link
               href="/products"

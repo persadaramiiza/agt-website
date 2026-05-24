@@ -59,6 +59,8 @@ export default function SolutionsPage() {
             </p>
             <a
               href={buildWhatsAppUrl("solution consultation")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-red mt-8 inline-flex items-center gap-2 rounded-[2px] bg-accent px-8 py-3 text-base font-medium text-white"
             >
               Find Your Solution <ArrowRight size={14} />

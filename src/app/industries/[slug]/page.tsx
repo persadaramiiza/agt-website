@@ -83,6 +83,8 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href={buildWhatsAppUrl(`${industry.name} industry solutions`)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cta-red inline-flex items-center gap-2 rounded-[2px] bg-accent px-6 py-3 text-xs font-bold uppercase tracking-[0.7px] shadow-lg"
               >
                 Request Industry Quote <ArrowRight size={14} />
