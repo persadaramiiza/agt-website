@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import {
   Beaker,
@@ -290,6 +290,11 @@ export default async function ProductDetailPage({
   params,
 }: ProductDetailPageProps) {
   const { slug } = await params;
+
+  if (slug === "cmc") {
+    permanentRedirect("/products/cmc-food-grade");
+  }
+
   const product = getProduct(slug);
 
   if (!product) notFound();
@@ -306,7 +311,7 @@ export default async function ProductDetailPage({
             {product.name}
           </h1>
           <h2 className="mt-4 text-2xl font-bold tracking-[-0.5px] text-primary md:text-3xl">
-            {product.slug === "cmc" ? "Cellulose Derivatives" : product.category}
+            {product.category}
           </h2>
           <p className="mt-5 max-w-xl text-lg leading-[29px] text-muted">
             {product.description}
@@ -371,6 +376,94 @@ export default async function ProductDetailPage({
           </dl>
         </div>
       </section>
+
+      {product.gradeGroups ? (
+        <section className="agt-container pb-20">
+          <div className="flex flex-col gap-3 border-b border-[#e6e8ea] pb-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[1.4px] text-primary">
+                Grade Selection
+              </p>
+              <h2 className="mt-2 text-2xl font-bold tracking-[-0.6px]">
+                {product.gradeGroups.length > 1
+                  ? "Food and Non Food CMC Grades"
+                  : product.gradeGroups[0].name}
+              </h2>
+            </div>
+            <p className="max-w-lg text-sm leading-6 text-muted">
+              Each CMC derivative is matched by application type and target
+              viscosity, from low-viscosity systems to high-build formulations.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {product.gradeGroups.map((group) => (
+              <article
+                key={group.name}
+                className="overflow-hidden rounded-lg border border-[#dde3ea] bg-white shadow-[0_18px_42px_-34px_rgba(15,35,63,0.45)]"
+              >
+                <div className="border-b border-[#e6e8ea] p-7">
+                  <p className="text-xs font-bold uppercase tracking-[1.3px] text-accent">
+                    {group.name}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-muted">
+                    {group.summary}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {group.applications.map((application) => (
+                      <span
+                        key={application}
+                        className="rounded-full border border-[#dfe4ea] bg-[#f8fafc] px-3 py-1 text-[11px] font-bold text-primary"
+                      >
+                        {application}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="overflow-x-auto">
+                  <table className="w-full min-w-[620px] border-collapse text-left text-sm">
+                    <thead className="bg-[#f2f4f6] text-xs uppercase tracking-[1.1px] text-muted">
+                      <tr>
+                        <th className="px-5 py-4 font-bold">Grade</th>
+                        <th className="px-5 py-4 font-bold">Viscosity</th>
+                        <th className="px-5 py-4 font-bold">Solution</th>
+                        <th className="px-5 py-4 font-bold">Purity</th>
+                        <th className="px-5 py-4 font-bold">DS</th>
+                        <th className="px-5 py-4 font-bold">pH</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#e6e8ea]">
+                      {group.grades.map((grade) => (
+                        <tr key={grade.name} className="align-top">
+                          <td className="px-5 py-4 font-black text-primary">
+                            {grade.name}
+                          </td>
+                          <td className="px-5 py-4 font-bold text-foreground">
+                            {grade.viscosity}
+                          </td>
+                          <td className="px-5 py-4 text-muted">
+                            {grade.solution ?? "-"}
+                          </td>
+                          <td className="px-5 py-4 text-muted">
+                            {grade.purity ?? "-"}
+                          </td>
+                          <td className="px-5 py-4 text-muted">
+                            {grade.degreeOfSubstitution ?? "-"}
+                          </td>
+                          <td className="px-5 py-4 text-muted">
+                            {grade.ph ?? "-"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="agt-container pb-20">
         <div className="flex flex-col gap-3 border-b border-[#e6e8ea] pb-5 md:flex-row md:items-end md:justify-between">

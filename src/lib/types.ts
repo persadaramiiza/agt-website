@@ -3,6 +3,22 @@ export type ProductDocument = {
   href: string;
 };
 
+export type ProductGrade = {
+  name: string;
+  viscosity: string;
+  solution?: string;
+  purity?: string;
+  degreeOfSubstitution?: string;
+  ph?: string;
+};
+
+export type ProductGradeGroup = {
+  name: string;
+  summary: string;
+  applications: string[];
+  grades: ProductGrade[];
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -11,6 +27,7 @@ export type Product = {
   description: string;
   applications: string[];
   specs: { label: string; value: string }[];
+  gradeGroups?: ProductGradeGroup[];
   caseExamples: string[];
   documents: ProductDocument[];
   image: string;

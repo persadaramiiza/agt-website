@@ -19,27 +19,220 @@ const productImages = {
 
 export const products: Product[] = [
   {
-    slug: "cmc",
-    name: "Carboxymethyl Cellulose (CMC)",
+    slug: "cmc-food-grade",
+    name: "Carboxymethyl Cellulose (CMC) Food Grade",
     category: "Cellulose Derivatives",
     summary:
-      "Carboxymethyl Cellulose for viscosity control, stabilization, binding, and water retention.",
+      "Food-grade CMC for viscosity control, stabilization, texture, binding, and water retention.",
     description:
-      "A versatile cellulose derivative used as a rheology modifier, stabilizer, binder, and water-retention aid across food, mining, paper, ceramic, and textile applications.",
-    applications: ["Food Industry", "Mining", "Paper", "Ceramic", "Textile"],
+      "A high-purity Carboxymethyl Cellulose range for food and beverage manufacturers that need stable texture, suspension, mouthfeel, moisture control, and batch-to-batch viscosity consistency.",
+    applications: ["Food Industry", "Food Processing", "Beverage Systems", "Texturizing"],
     specs: [
-      { label: "Viscosity (2% Solution)", value: "50 - 10,000 mPa.s" },
-      { label: "Degree of Substitution", value: "0.7 - 1.2" },
+      { label: "Grade Family", value: "Food Grade" },
+      { label: "Viscosity Range", value: "75 max. - 6,000 cps" },
+      { label: "Degree of Substitution", value: "0.80 - 0.95" },
       { label: "Purity", value: ">= 99.5%" },
-      { label: "Moisture", value: "<= 8.0%" },
+      { label: "Moisture", value: "<= 10.0%" },
+    ],
+    gradeGroups: [
+      {
+        name: "Food Grade CMC",
+        summary:
+          "High-purity food-grade options for texture, stabilization, suspension, and water-retention needs. Grade selection follows the target viscosity of the finished formulation.",
+        applications: [
+          "Powder drink",
+          "Jelly and nata de coco",
+          "Jam and dairy products",
+          "Syrup, juice, noodles, sauces, sambal, soy sauce, condiments, and pharmaceutical uses",
+        ],
+        grades: [
+          {
+            name: "F 25 P",
+            viscosity: "75 max. cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 100 P",
+            viscosity: "75 - 200 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.0",
+          },
+          {
+            name: "F 101 P",
+            viscosity: "75 - 200 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 401 P",
+            viscosity: "200 - 600 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 800 P",
+            viscosity: "600 - 1,000 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 1501 MP",
+            viscosity: "1,000 - 2,500 cps",
+            solution: "0.02",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 1501 P",
+            viscosity: "1,000 - 2,500 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 3000 P",
+            viscosity: "2,500 - 4,000 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+          {
+            name: "F 4000 P",
+            viscosity: "3,500 - 5,000 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.0 - 8.0",
+          },
+          {
+            name: "F 5000 P",
+            viscosity: "4,000 - 6,000 cps",
+            solution: "0.01",
+            purity: "99.5% min.",
+            degreeOfSubstitution: "0.80 - 0.95",
+            ph: "6.5 - 8.5",
+          },
+        ],
+      },
     ],
     caseExamples: [
-      "Mining flotation programs use CMC as a depressant and process modifier.",
-      "Food producers use food-grade CMC to improve texture, stability, and water retention.",
-      "Textile printing teams use CMC as a printing thickener to improve pattern sharpness and viscosity stability.",
+      "Food producers select lower-viscosity grades for lighter suspension and beverage systems, then move to F 1501 P and above for thicker sauces, condiments, and body-building needs.",
+      "Powder drink, syrup, juice, jelly, nata de coco, jam, dairy, noodles, sauces, sambal, soy sauce, and condiments can use different food-grade CMC viscosity levels.",
+      "Food-grade selection starts from the product texture target, then adjusts by solution concentration, viscosity range, pH, and purity requirement.",
     ],
     documents: [
       { label: "SDS CMC Food Grades", href: "/documents/products/cmc-food-grades-sds.pdf" },
+      { label: "CMC Case Example", href: "/documents/products/cmc-case-example.pdf" },
+      {
+        label: "Arbecel Spec & Application",
+        href: "/documents/products/arbecel-spec-and-application.xlsx",
+      },
+    ],
+    image: productImages.cmc,
+  },
+  {
+    slug: "cmc-non-food-grade",
+    name: "Carboxymethyl Cellulose (CMC) Non Food Grade",
+    category: "Cellulose Derivatives",
+    summary:
+      "Industrial CMC and PAC grades for viscosity control, binding, thickening, and process rheology.",
+    description:
+      "A non-food Carboxymethyl Cellulose and PAC range for ceramic, coating, plywood, dental care, home care, personal care, textile, welding, and selected oil-drilling workflows that need controlled viscosity and practical industrial performance.",
+    applications: ["Mining", "Paper", "Ceramic", "Textile", "Industrial Formulation"],
+    specs: [
+      { label: "Grade Family", value: "Non Food Grade" },
+      { label: "Viscosity Range", value: "35 max. - 2,500 min. cps" },
+      { label: "Purity Range", value: "55% - 90% min." },
+      { label: "Degree of Substitution", value: "0.70 min. - 1.10" },
+      { label: "Moisture", value: "<= 10.0%" },
+    ],
+    gradeGroups: [
+      {
+        name: "Non Food Grade CMC",
+        summary:
+          "Industrial and oil-drilling grade options for applications that prioritize process rheology, thickening, binding, and dispersion behavior.",
+        applications: [
+          "Ceramic",
+          "Coating and paint",
+          "Plywood",
+          "Dental care",
+          "Home care",
+          "Personal care",
+          "Textile",
+          "Welding",
+        ],
+        grades: [
+          {
+            name: "DT 1000",
+            viscosity: "2,000 - 6,000 cps",
+            solution: "0.05",
+            purity: "55% min.",
+            degreeOfSubstitution: "0.70 min.",
+            ph: "6.5 - 11.0",
+          },
+          {
+            name: "TP 100",
+            viscosity: "70 - 150 cps",
+            solution: "0.02",
+            purity: "62% min.",
+            degreeOfSubstitution: "0.70 min.",
+            ph: "6.5 - 11.0",
+          },
+          {
+            name: "CMC HVT",
+            viscosity: "2,500 min. cps",
+            solution: "0.02",
+            purity: "55% min.",
+            degreeOfSubstitution: "0.80 min.",
+            ph: "8.0 - 10.0",
+          },
+          {
+            name: "CMC LVT",
+            viscosity: "35 max. cps",
+            solution: "0.02",
+            purity: "55% min.",
+            degreeOfSubstitution: "0.80 min.",
+            ph: "8.0 - 10.0",
+          },
+          {
+            name: "PAC LV",
+            viscosity: "200 max. cps",
+            solution: "0.02",
+            purity: "90% min.",
+            degreeOfSubstitution: "0.90 - 1.10",
+            ph: "7.0 - 10.0",
+          },
+          {
+            name: "PAC RT",
+            viscosity: "700 - 1,000 cps",
+            solution: "0.01",
+            purity: "70% min.",
+            degreeOfSubstitution: "0.85 - 0.95",
+            ph: "9.0 min.",
+          },
+        ],
+      },
+    ],
+    caseExamples: [
+      "Industrial users select DT 1000, TP 100, CMC HVT, CMC LVT, PAC LV, or PAC RT based on target viscosity, purity, and process conditions.",
+      "Textile, coating, ceramic, and home-care teams use non-food grades when viscosity control and binding performance matter more than food-grade purity.",
+      "Mining and selected oil-drilling workflows can qualify CMC or PAC options by viscosity behavior, filtrate requirement, and salt-water performance.",
+    ],
+    documents: [
       { label: "SDS CMC HVT", href: "/documents/products/cmc-hvt-sds.pdf" },
       { label: "CMC Case Example", href: "/documents/products/cmc-case-example.pdf" },
       {
@@ -590,7 +783,7 @@ export const industries: Industry[] = [
       "Caustic soda support for selected alumina and industrial alkali workflows.",
       "Kaporit support for selected metal-processing and disinfection needs.",
     ],
-    productSlugs: ["cmc", "caustic-soda-98-flake", "kaporit-60"],
+    productSlugs: ["cmc-non-food-grade", "caustic-soda-98-flake", "kaporit-60"],
   },
   {
     slug: "food-beverage",
@@ -613,7 +806,7 @@ export const industries: Industry[] = [
       "SDS, specification, packaging, and sample discussion during qualification.",
     ],
     productSlugs: [
-      "cmc",
+      "cmc-food-grade",
       "corn-starch-daesang",
       "dextrose-monohydrate-fufeng",
       "dextrose-monohydrate-lihua",
@@ -671,7 +864,11 @@ export const resources: Resource[] = [
 ];
 
 export function getProduct(slug: string) {
-  return products.find((product) => product.slug === slug);
+  const legacyProductAliases: Record<string, string> = {
+    cmc: "cmc-food-grade",
+  };
+
+  return products.find((product) => product.slug === (legacyProductAliases[slug] ?? slug));
 }
 
 export function getIndustry(slug: string) {
