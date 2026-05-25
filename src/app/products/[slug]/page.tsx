@@ -299,6 +299,7 @@ export default async function ProductDetailPage({
 
   if (!product) notFound();
   const productTitleClass = getProductTitleClass(product.name);
+  const hasSingleGradeGroup = product.gradeGroups?.length === 1;
 
   return (
     <main className="bg-background">
@@ -396,7 +397,13 @@ export default async function ProductDetailPage({
             </p>
           </div>
 
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+          <div
+            className={
+              hasSingleGradeGroup
+                ? "mt-8 grid gap-6"
+                : "mt-8 grid gap-6 lg:grid-cols-2"
+            }
+          >
             {product.gradeGroups.map((group) => (
               <article
                 key={group.name}
@@ -422,36 +429,36 @@ export default async function ProductDetailPage({
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[620px] border-collapse text-left text-sm">
+                  <table className="w-full min-w-[820px] border-collapse text-left text-sm">
                     <thead className="bg-[#f2f4f6] text-xs uppercase tracking-[1.1px] text-muted">
                       <tr>
-                        <th className="px-5 py-4 font-bold">Grade</th>
-                        <th className="px-5 py-4 font-bold">Viscosity</th>
-                        <th className="px-5 py-4 font-bold">Solution</th>
-                        <th className="px-5 py-4 font-bold">Purity</th>
-                        <th className="px-5 py-4 font-bold">DS</th>
-                        <th className="px-5 py-4 font-bold">pH</th>
+                        <th className="px-6 py-4 font-bold">Grade</th>
+                        <th className="px-6 py-4 font-bold">Viscosity</th>
+                        <th className="px-6 py-4 font-bold">Solution</th>
+                        <th className="px-6 py-4 font-bold">Purity</th>
+                        <th className="px-6 py-4 font-bold">DS</th>
+                        <th className="px-6 py-4 font-bold">pH</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#e6e8ea]">
                       {group.grades.map((grade) => (
                         <tr key={grade.name} className="align-top">
-                          <td className="px-5 py-4 font-black text-primary">
+                          <td className="px-6 py-5 font-black text-primary">
                             {grade.name}
                           </td>
-                          <td className="px-5 py-4 font-bold text-foreground">
+                          <td className="px-6 py-5 font-bold text-foreground">
                             {grade.viscosity}
                           </td>
-                          <td className="px-5 py-4 text-muted">
+                          <td className="px-6 py-5 text-muted">
                             {grade.solution ?? "-"}
                           </td>
-                          <td className="px-5 py-4 text-muted">
+                          <td className="px-6 py-5 text-muted">
                             {grade.purity ?? "-"}
                           </td>
-                          <td className="px-5 py-4 text-muted">
+                          <td className="px-6 py-5 text-muted">
                             {grade.degreeOfSubstitution ?? "-"}
                           </td>
-                          <td className="px-5 py-4 text-muted">
+                          <td className="px-6 py-5 text-muted">
                             {grade.ph ?? "-"}
                           </td>
                         </tr>
