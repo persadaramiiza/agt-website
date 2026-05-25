@@ -3,6 +3,7 @@ import type { Industry, Product, ProductCategoryGroup, Resource } from "./types"
 const productImages = {
   causticSoda: "/images/products/caustic-soda-98-flake.png",
   cmc: "/images/products/cmc.png",
+  cmcFoodGrade: "/images/products/cmc-food-f1501-p.png",
   cornStarch: "/images/products/corn-starch-daesang.jpg",
   dextroseFufeng: "/images/products/dextrose fufeng.png",
   dextroseLihua: "/images/products/dextrose-monohydrate-lihua.webp",
@@ -142,7 +143,7 @@ export const products: Product[] = [
         href: "/documents/products/arbecel-spec-and-application.xlsx",
       },
     ],
-    image: productImages.cmc,
+    image: productImages.cmcFoodGrade,
   },
   {
     slug: "cmc-non-food-grade",
