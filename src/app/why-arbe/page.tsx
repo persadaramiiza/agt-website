@@ -102,7 +102,7 @@ export default function WhyArbePage() {
           <img
             src="/images/resources/Aset%20Foto%20CMC%20dan%20AGT/%5B0%5D%20You%20Grow%2C%20We%20Grow.jpg"
             alt="Arbe team at manufacturing facility"
-            className="h-full min-h-[560px] w-full object-cover"
+            className="h-full min-h-[560px] w-full scale-x-[-1] object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.28)_100%)]" />
           <div className="absolute right-5 top-5">

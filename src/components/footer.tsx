@@ -1,18 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import { products } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#e2e8f0]/40 bg-[#f8fafc]">
-      <div className="agt-container grid gap-10 py-16 md:grid-cols-4">
+    <footer className="border-t border-[#e2e8f0]/40 bg-[#f4f6f8]">
+      <div className="agt-container grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.9fr_0.9fr]">
         <div>
           <Image
             src="/images/brand/agt-logo.png"
             alt="Arbe Global Trading"
             width={961}
             height={186}
-            className="h-10 w-auto"
+            className="h-9 w-auto"
           />
           <p className="mt-4 max-w-xs text-sm leading-[22.75px] text-[#64748b]">
             Reliable chemical materials and distribution support for essential
@@ -37,15 +36,13 @@ export function Footer() {
           <p className="text-sm font-bold uppercase tracking-[0.7px] text-[#1e3a8a]">
             Products
           </p>
-          <div className="mt-5 grid gap-x-5 gap-y-3 text-sm text-[#64748b] underline sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-            {products.map((product) => (
-              <Link key={product.slug} href={`/products/${product.slug}`}>
-                {product.name}
-              </Link>
-            ))}
-            <Link href="/products" className="font-bold text-primary">
-              View all products
-            </Link>
+          <div className="mt-5 grid gap-3 text-sm text-[#64748b] underline">
+            <Link href="/products/cmc-food-grade">CMC</Link>
+            <Link href="/products/maltodextrin-de-10-12-lihua">Maltodextrin</Link>
+            <Link href="/products/dextrose-monohydrate-fufeng">Dextrose Monohydrate</Link>
+            <Link href="/products/corn-starch-daesang">Corn Starch</Link>
+            <Link href="/products/tcca-90-powder">TCCA</Link>
+            <Link href="/products" className="font-bold text-primary">View all products</Link>
           </div>
         </div>
         <div>
@@ -59,7 +56,7 @@ export function Footer() {
             Request a Quote
           </Link>
           <p className="mt-4 text-sm leading-[22px] text-[#64748b]">
-            +62 21 5099 1189
+            0813-8080-876
             <br />
             admin@arbetrading.com
           </p>

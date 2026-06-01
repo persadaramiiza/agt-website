@@ -172,7 +172,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </span>
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold leading-[1.28] tracking-[-0.2px] group-hover:text-primary">
+                <h3 className="text-lg font-bold leading-[1.28] tracking-[-0.2px] text-primary">
                   {product.name}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{product.summary}</p>

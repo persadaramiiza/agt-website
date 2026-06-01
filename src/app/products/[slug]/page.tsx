@@ -4,7 +4,6 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import {
   Beaker,
-  Download,
   Droplets,
   Factory,
   FileText,
@@ -20,8 +19,8 @@ import {
   Waves,
   Wheat,
 } from "lucide-react";
-import { getProduct, products } from "@/lib/data";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { getProduct, industries, products } from "@/lib/data";
+import { buildWhatsAppDocumentUrl, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 type ProductDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -256,6 +255,38 @@ function getApplicationIndustryHref(application: string) {
   return industryMap[application];
 }
 
+function getProductIndustryLink(productSlug: string, category: string) {
+  const productMap: Record<string, string> = {
+    "caustic-soda-98-flake": "/industries/mining",
+    "cmc-food-grade": "/industries/food-beverage",
+    "cmc-non-food-grade": "/industries/mining",
+    "glycerin-wilmar": "/industries/food-beverage",
+  };
+  const categoryMap: Record<string, string> = {
+    "Carbohydrates & Starches": "/industries/food-beverage",
+    "Food Proteins & Ingredients": "/industries/food-beverage",
+    "Water Treatment & Disinfection": "/industries/water-treatment",
+  };
+
+  const directHref = productMap[productSlug] ?? categoryMap[category];
+
+  if (directHref) {
+    const industry = industries.find(
+      (item) => directHref === `/industries/${item.slug}`,
+    );
+
+    return industry ? { href: directHref, name: industry.name } : undefined;
+  }
+
+  const relatedIndustry = industries.find((industry) =>
+    industry.productSlugs.includes(productSlug),
+  );
+
+  return relatedIndustry
+    ? { href: `/industries/${relatedIndustry.slug}`, name: relatedIndustry.name }
+    : undefined;
+}
+
 function getProductTitleClass(name: string) {
   if (name.length > 58) {
     return "text-3xl leading-[1.08] tracking-[-0.9px] sm:text-4xl md:text-[46px] md:leading-[1.05]";
@@ -299,6 +330,7 @@ export default async function ProductDetailPage({
 
   if (!product) notFound();
   const productTitleClass = getProductTitleClass(product.name);
+  const productIndustryLink = getProductIndustryLink(product.slug, product.category);
   const hasSingleGradeGroup = product.gradeGroups?.length === 1;
 
   return (
@@ -311,9 +343,19 @@ export default async function ProductDetailPage({
           <h1 className={`mt-6 max-w-[760px] text-balance break-words font-black text-foreground ${productTitleClass}`}>
             {product.name}
           </h1>
-          <h2 className="mt-4 text-2xl font-bold tracking-[-0.5px] text-primary md:text-3xl">
-            {product.category}
-          </h2>
+          {productIndustryLink ? (
+            <Link
+              href={productIndustryLink.href}
+              className="mt-4 inline-flex text-2xl font-bold tracking-[-0.5px] text-primary underline decoration-primary/25 underline-offset-4 transition hover:text-primary-strong hover:decoration-primary md:text-3xl"
+              style={{ color: "#003f87" }}
+            >
+              {productIndustryLink.name}
+            </Link>
+          ) : (
+            <h2 className="mt-4 text-2xl font-bold tracking-[-0.5px] text-primary md:text-3xl">
+              {product.category}
+            </h2>
+          )}
           <p className="mt-5 max-w-xl text-lg leading-[29px] text-muted">
             {product.description}
           </p>
@@ -328,12 +370,12 @@ export default async function ProductDetailPage({
             </a>
             {product.documents[0] ? (
               <a
-                href={product.documents[0].href}
+                href={buildWhatsAppDocumentUrl(product.name, product.documents[0].label)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-[2px] border border-[#c2c6d4]/30 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
-                Download Document
+                Request Document via WhatsApp
               </a>
             ) : null}
           </div>
@@ -513,7 +555,8 @@ export default async function ProductDetailPage({
                 {industryHref ? (
                   <Link
                     href={industryHref}
-                    className="mt-2 inline-flex text-xl font-bold tracking-[-0.4px] text-foreground underline decoration-primary/25 underline-offset-4 transition hover:text-primary hover:decoration-primary"
+                    className="mt-2 inline-flex text-xl font-bold tracking-[-0.4px] text-primary underline decoration-primary/25 underline-offset-4 transition hover:text-primary-strong hover:decoration-primary"
+                    style={{ color: "#003f87" }}
                   >
                     {application}
                   </Link>
@@ -555,20 +598,21 @@ export default async function ProductDetailPage({
               Technical Documentation
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Access detailed product specifications and safety handling instructions.
+              Request detailed product specifications and safety handling
+              instructions from AGT admin.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-0">
-            {product.documents.map((document, index) => (
+            {product.documents.map((document) => (
               <a
                 key={document.href}
-                href={document.href}
+                href={buildWhatsAppDocumentUrl(product.name, document.label)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
-                {index === 0 ? <FileText size={16} /> : <Download size={16} />}
-                {document.label}
+                <FileText size={16} />
+                Request {document.label}
               </a>
             ))}
           </div>

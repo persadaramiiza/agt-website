@@ -25,11 +25,6 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           <h1 className="mt-6 max-w-3xl text-5xl font-black leading-none tracking-[-1.5px] md:text-6xl">
             Request a quote or technical discussion
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-[29px] text-muted">
-            Share your product interest, application context, and company details.
-            The submission is structured for Salesforce lead tracking when
-            credentials are configured.
-          </p>
         </div>
       </section>
       <section className="agt-container grid gap-10 py-20 lg:grid-cols-[0.75fr_1.25fr]">
@@ -73,7 +68,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <div>
               <p className="font-bold text-foreground">Contact</p>
               <p className="mt-2 leading-[22px]">
-                No. Telp: +62 21 5099 1189
+                No. Telp: 0813-8080-876
                 <br />
                 admin@arbetrading.com
               </p>
