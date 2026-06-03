@@ -1,5 +1,6 @@
 # dependencies
 node_modules/
+.npm-cache/
 
 # next.js
 .next/
@@ -8,6 +9,7 @@ out/
 # production
 dist/
 build/
+deploy-cpanel-*/
 
 # generated document artifacts
 docx_render_next_step/
