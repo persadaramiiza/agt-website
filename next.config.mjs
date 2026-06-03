@@ -1,10 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "standalone",
   experimental: {
     cpus: 1,
-    staticGenerationMaxConcurrency: 1,
-    staticGenerationMinPagesPerWorker: 1000,
   },
   images: {
     remotePatterns: [
@@ -22,6 +20,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  webpack: (config) => config,
 };
 
 export default nextConfig;
