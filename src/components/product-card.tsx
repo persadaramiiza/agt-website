@@ -15,9 +15,6 @@ export function ProductCard({ product }: { product: Product }) {
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.22)_100%)]" />
-        <span className="absolute left-4 top-4 rounded-[2px] bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.6px] text-primary shadow-sm backdrop-blur">
-          {product.category}
-        </span>
       </div>
       <div className="p-5">
         <h2 className="text-lg font-bold leading-[1.25] tracking-[-0.2px] text-foreground">
