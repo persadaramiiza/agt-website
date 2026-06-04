@@ -340,6 +340,15 @@ function getProductTitleClass(name: string) {
   return "text-5xl leading-none tracking-[-1.5px] sm:text-6xl md:text-7xl md:tracking-[-2.5px]";
 }
 
+function isRequestOnlySpec(spec: { label: string; value: string }) {
+  const requestOnlyLabels = ["Specification", "MSDS", "SDS"];
+
+  return (
+    requestOnlyLabels.includes(spec.label) &&
+    spec.value.toLowerCase() === "available"
+  );
+}
+
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
 }
@@ -373,6 +382,11 @@ export default async function ProductDetailPage({
   const productTitleClass = getProductTitleClass(product.name);
   const productIndustryLink = getProductIndustryLink(product.slug, product.category);
   const hasSingleGradeGroup = product.gradeGroups?.length === 1;
+  const visibleSpecs = product.specs.filter((spec) => !isRequestOnlySpec(spec));
+  const emailSubject = encodeURIComponent(`Request ${product.name} documentation`);
+  const emailBody = encodeURIComponent(
+    `Hello AGT team,\n\nI would like to request the specification/MSDS for ${product.name}.\n\nThank you.`,
+  );
 
   return (
     <main className="bg-background">
@@ -441,7 +455,7 @@ export default async function ProductDetailPage({
         </div>
         <div className="industrial-shadow overflow-hidden rounded-[2px] border border-[#c2c6d4]/15 bg-white">
           <dl className="grid bg-[#e6e8ea] gap-px md:grid-cols-2">
-            {product.specs.slice(0, 4).map((spec, index) => (
+            {visibleSpecs.slice(0, 4).map((spec, index) => (
               <div key={spec.label} className="bg-white p-8">
                 <dt className="text-xs uppercase tracking-[1.2px] text-muted">
                   {spec.label}
@@ -639,8 +653,8 @@ export default async function ProductDetailPage({
               Technical Documentation
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Request detailed product specifications and safety handling
-              instructions from AGT admin.
+              Request product specifications, MSDS/SDS, and safety handling
+              instructions from AGT via WhatsApp or email.
             </p>
           </div>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-0">
@@ -656,6 +670,13 @@ export default async function ProductDetailPage({
                 Request {document.label}
               </a>
             ))}
+            <a
+              href={`mailto:admin@arbetrading.com?subject=${emailSubject}&body=${emailBody}`}
+              className="inline-flex items-center gap-2 rounded-[2px] border border-primary/20 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
+            >
+              <FileText size={16} />
+              Request via Email
+            </a>
           </div>
         </div>
       </section>
