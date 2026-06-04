@@ -2,11 +2,20 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { industries } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Industries",
-  description: "AGT industry solutions for water treatment, food and beverage, mining, and agriculture.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Industries Served",
+  description:
+    "AGT supplies chemical products and application support for water treatment, food and beverage, mining, and agriculture industries.",
+  path: "/industries",
+  keywords: [
+    "water treatment chemicals Indonesia",
+    "food beverage chemical supplier",
+    "mining chemical supplier",
+    "agriculture chemical supplier",
+  ],
+});
 
 export default function IndustriesPage() {
   return (

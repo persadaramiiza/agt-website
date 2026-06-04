@@ -20,6 +20,7 @@ import {
   Wheat,
 } from "lucide-react";
 import { getProduct, industries, products } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppDocumentUrl, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 type ProductDetailPageProps = {
@@ -361,9 +362,25 @@ export async function generateMetadata({
 
   if (!product) return { title: "Product not found" };
 
-  return {
+  const metadata = createPageMetadata({
     title: product.name,
     description: product.summary,
+    path: `/products/${product.slug}`,
+    image: product.image,
+    keywords: [
+      product.name,
+      product.category,
+      ...product.applications,
+      ...product.specs.map((spec) => `${spec.label} ${spec.value}`),
+    ],
+  });
+
+  return {
+    ...metadata,
+    openGraph: {
+      ...metadata.openGraph,
+      type: "website",
+    },
   };
 }
 

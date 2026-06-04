@@ -1,6 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, Download } from "lucide-react";
 import { industries } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Chemical Distributor Indonesia",
+  description:
+    "Arbe Global Trading supplies specialty chemicals for water treatment, food and beverage, mining, agriculture, and industrial formulation needs in Indonesia.",
+  path: "/",
+  keywords: [
+    "chemical distributor Indonesia",
+    "specialty chemical supplier Indonesia",
+    "industrial chemical supplier Indonesia",
+  ],
+});
 
 const heroIndustryOrder = [
   "agriculture",

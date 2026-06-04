@@ -13,6 +13,7 @@ import {
   Utensils,
 } from "lucide-react";
 import { getIndustry, getProduct, industries } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import type { Product } from "@/lib/types";
 
@@ -39,10 +40,17 @@ export async function generateMetadata({
 
   if (!industry) return { title: "Industry not found" };
 
-  return {
-    title: industry.name,
+  return createPageMetadata({
+    title: `${industry.name} Chemical Products`,
     description: industry.summary,
-  };
+    path: `/industries/${industry.slug}`,
+    image: industry.image,
+    keywords: [
+      `${industry.name} chemical supplier`,
+      `${industry.name} chemicals Indonesia`,
+      ...industry.solutions,
+    ],
+  });
 }
 
 export default async function IndustryPage({ params }: IndustryPageProps) {

@@ -9,12 +9,21 @@ import {
   Wheat,
 } from "lucide-react";
 import { figmaAssets, solutions } from "@/lib/design";
+import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-export const metadata: Metadata = {
-  title: "Solutions",
-  description: "AGT strategic chemical interventions for industrial problems.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Chemical Solutions",
+  description:
+    "AGT provides chemical solution support for water treatment, food formulation, mining workflows, textile processing, and industrial cost control.",
+  path: "/solutions",
+  keywords: [
+    "chemical solutions Indonesia",
+    "water treatment solution",
+    "food formulation chemicals",
+    "industrial chemical support",
+  ],
+});
 
 const solutionVisuals = [
   {

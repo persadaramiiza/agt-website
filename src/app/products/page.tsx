@@ -3,13 +3,22 @@ import Link from "next/link";
 import { ProductExplorer } from "@/components/product-explorer";
 import { getProductFilterOptions } from "@/lib/product-filter";
 import { industries, products } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
-export const metadata: Metadata = {
-  title: "Products",
+export const metadata: Metadata = createPageMetadata({
+  title: "Chemical Products",
   description:
-    "Explore AGT specialty chemical products and request product-specific quotes.",
-};
+    "Explore AGT chemical products including CMC, TCCA 90, caustic soda, PAC, kaporit, corn starch, dextrose, maltodextrin, tapioca starch, glycerin, and ISP.",
+  path: "/products",
+  keywords: [
+    "chemical products Indonesia",
+    "CMC food grade",
+    "TCCA 90",
+    "caustic soda flake",
+    "PAC water treatment",
+  ],
+});
 
 export default function ProductsPage() {
   const productFilters = getProductFilterOptions(industries);

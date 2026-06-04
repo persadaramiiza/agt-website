@@ -8,11 +8,20 @@ import {
   Globe2,
   ShieldCheck,
 } from "lucide-react";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Why Arbe",
-  description: "Why AGT Arbe Chemindo is built for chemical reliability.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Why Arbe Global Trading",
+  description:
+    "Learn why Arbe Global Trading supports Indonesian industries with reliable chemical supply, quality assurance, documentation, and application guidance.",
+  path: "/why-arbe",
+  keywords: [
+    "Arbe Global Trading",
+    "Arbe Chemindo",
+    "chemical supplier reliability",
+    "chemical distribution Indonesia",
+  ],
+});
 
 export default function WhyArbePage() {
   return (

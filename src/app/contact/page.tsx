@@ -2,11 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { InquiryForm } from "@/components/inquiry-form";
 import { products } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Contact AGT for product inquiries and quote requests.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact AGT",
+  description:
+    "Contact Arbe Global Trading for chemical product inquiries, quotation requests, MSDS/SDS, specifications, and technical discussions.",
+  path: "/contact",
+  keywords: [
+    "chemical quotation Indonesia",
+    "request chemical quote",
+    "MSDS request",
+    "chemical supplier contact",
+  ],
+});
 
 type ContactPageProps = {
   searchParams: Promise<{ product?: string }>;

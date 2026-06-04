@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getResource, resources } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 
 type ResourcePageProps = {
   params: Promise<{ slug: string }>;
@@ -22,9 +23,20 @@ export async function generateMetadata({
     return { title: "Resource not found" };
   }
 
-  return {
+  const metadata = createPageMetadata({
     title: resource.title,
     description: resource.excerpt,
+    path: `/resources/${resource.slug}`,
+    keywords: [resource.category, resource.title],
+  });
+
+  return {
+    ...metadata,
+    openGraph: {
+      ...metadata.openGraph,
+      type: "article",
+      publishedTime: resource.publishedAt,
+    },
   };
 }
 

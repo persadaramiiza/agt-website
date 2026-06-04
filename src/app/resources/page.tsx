@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import { ResourceExplorer } from "@/components/resource-explorer";
 import { resources } from "@/lib/data";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Resources",
+export const metadata: Metadata = createPageMetadata({
+  title: "Chemical Resources",
   description:
-    "AGT resources and practical notes for industrial chemical buyers.",
-};
+    "Read AGT resources and practical notes for industrial chemical buyers, water treatment teams, food processors, and procurement teams.",
+  path: "/resources",
+  keywords: [
+    "chemical buyer resources",
+    "water treatment chemical guide",
+    "industrial chemical articles",
+  ],
+});
 
 export default function ResourcesPage() {
   return (
