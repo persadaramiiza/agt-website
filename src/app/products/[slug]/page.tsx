@@ -65,8 +65,8 @@ const applicationContent: Record<string, ApplicationCardContent> = {
   Mining: {
     eyebrow: "Mineral Processing",
     description:
-      "Application review for depressant, binder, and process-modifier use under demanding plant conditions.",
-    capability: "Ore-condition review",
+      "Product-fit review for selected mining, mineral-processing, and plant-level chemical workflows.",
+    capability: "Process review",
     icon: Hammer,
   },
   Paper: {
@@ -84,10 +84,10 @@ const applicationContent: Record<string, ApplicationCardContent> = {
     icon: Sparkles,
   },
   Textile: {
-    eyebrow: "Print & Sizing Control",
+    eyebrow: "Textile Processing",
     description:
-      "Viscosity and thickening support for textile printing, sizing, and sharper production outcomes.",
-    capability: "Viscosity control",
+      "Product matching for textile preparation, sizing, finishing, or processing workflows based on the selected chemical.",
+    capability: "Textile fit",
     icon: Shirt,
   },
   Texturizing: {
@@ -230,6 +230,48 @@ function getApplicationContent(application: string): ApplicationCardContent {
   );
 }
 
+function getProductApplicationContent(
+  productSlug: string,
+  application: string,
+): ApplicationCardContent {
+  const productOverrides: Record<string, Record<string, ApplicationCardContent>> = {
+    "caustic-soda-98-flake": {
+      "Industrial Formulation": {
+        eyebrow: "Alkali Input",
+        description:
+          "Strong alkali support for soap, detergent, cleaning, and selected industrial formulation workflows.",
+        capability: "Alkali review",
+        icon: Beaker,
+      },
+      Textile: {
+        eyebrow: "Scouring & Mercerizing",
+        description:
+          "Caustic soda support for textile scouring, bleaching preparation, and cotton mercerizing workflows.",
+        capability: "Textile process fit",
+        icon: Shirt,
+      },
+      Mining: {
+        eyebrow: "Alumina Processing",
+        description:
+          "Caustic soda support for selected alumina and Bayer-process workflows that need high-strength alkali input.",
+        capability: "Alkali process review",
+        icon: Hammer,
+      },
+    },
+    "glycerin-wilmar": {
+      Textile: {
+        eyebrow: "Softening Support",
+        description:
+          "Glycerin support for textile softening, moisture retention, and selected finishing formulations.",
+        capability: "Finishing review",
+        icon: Shirt,
+      },
+    },
+  };
+
+  return productOverrides[productSlug]?.[application] ?? getApplicationContent(application);
+}
+
 function getApplicationIndustryHref(application: string) {
   const industryMap: Record<string, string> = {
     Agriculture: "/industries/agriculture",
@@ -246,7 +288,6 @@ function getApplicationIndustryHref(application: string) {
     "Pool Treatment": "/industries/water-treatment",
     "Poultry Sanitation": "/industries/agriculture",
     Sanitation: "/industries/water-treatment",
-    Textile: "/industries/food-beverage",
     Texturizing: "/industries/food-beverage",
     "Wastewater Treatment": "/industries/water-treatment",
     "Water Treatment": "/industries/water-treatment",
@@ -395,7 +436,7 @@ export default async function ProductDetailPage({
             Technical Specifications
           </h2>
           <p className="text-xs uppercase tracking-[1.2px] text-muted">
-            Standard Grades
+            Product Details
           </p>
         </div>
         <div className="industrial-shadow overflow-hidden rounded-[2px] border border-[#c2c6d4]/15 bg-white">
@@ -525,13 +566,13 @@ export default async function ProductDetailPage({
             </h2>
           </div>
           <p className="max-w-md text-sm leading-6 text-muted">
-            Each use case is matched through grade selection, specification
+            Each use case is matched through product selection, specification
             review, and documentation readiness.
           </p>
         </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {product.applications.map((application, index) => {
-            const content = getApplicationContent(application);
+            const content = getProductApplicationContent(product.slug, application);
             const Icon = content.icon;
             const industryHref = getApplicationIndustryHref(application);
 
