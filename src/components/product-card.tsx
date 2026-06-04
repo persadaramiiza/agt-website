@@ -6,15 +6,14 @@ import { ButtonLink } from "./button-link";
 export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="group overflow-hidden rounded-md border border-line bg-surface shadow-[0_4px_16px_-8px_rgba(25,28,30,0.14)] transition duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-[0_18px_38px_-18px_rgba(0,63,135,0.35)]">
-      <div className="relative aspect-[4/3]">
+      <div className="relative aspect-[5/4] bg-gradient-to-b from-white to-[#eef5fb]">
         <Image
           src={product.image}
           alt={product.name}
           fill
           sizes="(min-width: 1024px) 33vw, 100vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-contain p-4 transition duration-500 group-hover:scale-[1.03]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,63,135,0.02)_0%,rgba(0,63,135,0.22)_100%)]" />
       </div>
       <div className="p-5">
         <h2 className="text-lg font-bold leading-[1.25] tracking-[-0.2px] text-foreground">
