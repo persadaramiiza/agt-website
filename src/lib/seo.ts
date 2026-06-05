@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 
+const configuredSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.arbetrading.com";
+
+const canonicalSiteUrl = configuredSiteUrl
+  .replace(/\/$/, "")
+  .replace("https://arbetrading.com", "https://www.arbetrading.com");
+
 export const siteConfig = {
   name: "Arbe Global Trading",
   shortName: "AGT",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://arbetrading.com",
+  url: canonicalSiteUrl,
   description:
     "Arbe Global Trading supplies specialty chemicals for water treatment, food and beverage, mining, agriculture, and industrial formulation needs in Indonesia.",
   email: "admin@arbetrading.com",
