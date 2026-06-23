@@ -40,7 +40,7 @@ export function InquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4">
+    <form onSubmit={handleSubmit} className="grid min-w-0 gap-4">
       <input type="hidden" name="sourcePath" value="/contact" />
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-medium">
@@ -82,7 +82,7 @@ export function InquiryForm({
         <select
           name="product"
           defaultValue={defaultProduct}
-          className="h-11 rounded-md border border-line bg-white px-3 outline-none transition focus:border-primary"
+          className="h-11 min-w-0 w-full rounded-md border border-line bg-white px-3 outline-none transition focus:border-primary"
         >
           <option value="">General inquiry</option>
           {products.map((product) => (
@@ -98,7 +98,7 @@ export function InquiryForm({
           name="message"
           required
           rows={5}
-          className="resize-none rounded-md border border-line bg-white p-3 outline-none transition focus:border-primary"
+          className="min-w-0 w-full resize-none rounded-md border border-line bg-white p-3 outline-none transition focus:border-primary"
         />
       </label>
       <button

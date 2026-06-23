@@ -36,8 +36,8 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           </h1>
         </div>
       </section>
-      <section className="agt-container grid gap-10 py-20 lg:grid-cols-[0.75fr_1.25fr]">
-        <aside className="rounded-lg bg-[#f2f4f6] p-8">
+      <section className="agt-container grid grid-cols-[minmax(0,1fr)] gap-10 py-20 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
+        <aside className="min-w-0 rounded-lg bg-[#f2f4f6] p-6 md:p-8">
           <Image
             src="/images/brand/agt-logo.png"
             alt="Arbe Global Trading"
@@ -84,7 +84,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             </div>
           </div>
         </aside>
-        <section className="industrial-shadow rounded-lg bg-white p-6 md:p-8">
+        <section className="industrial-shadow min-w-0 rounded-lg bg-white p-6 md:p-8">
           <InquiryForm products={products} defaultProduct={product} />
         </section>
       </section>
