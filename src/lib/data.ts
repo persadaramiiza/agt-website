@@ -6,7 +6,7 @@ const productImages = {
   cmcFoodGrade: "/images/products/cmc-food-f1501-p.png",
   cornStarch: "/images/products/corn-starch-daesang.jpg",
   dextroseFufeng: "/images/products/dextrose fufeng.png",
-  dextroseLihua: "/images/products/dextrose-monohydrate-lihua.webp",
+  dextroseLihua: "/images/products/dextrose-monohydrate-lihua-clean.png",
   glycerin: "/images/products/glycerin-wilmar.jpeg",
   isolatedSoyaProtein: "/images/products/isolated-soya-protein.png",
   kaporit: "/images/products/kaporit-60.jpg",
