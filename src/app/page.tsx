@@ -5,11 +5,14 @@ import { industries } from "@/lib/data";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Chemical Distributor Indonesia",
+  title: "PT Arbe Global Trading (AGT) | Chemical Supplier Indonesia",
   description:
-    "Arbe Global Trading supplies specialty chemicals for water treatment, food and beverage, mining, agriculture, and industrial formulation needs in Indonesia.",
+    "PT Arbe Global Trading (AGT) supplies specialty chemicals and industrial raw materials for water treatment, food and beverage, mining, agriculture, and industrial formulation needs in Indonesia.",
   path: "/",
   keywords: [
+    "PT Arbe Global Trading",
+    "Arbe Trading",
+    "AGT chemical supplier",
     "chemical distributor Indonesia",
     "specialty chemical supplier Indonesia",
     "industrial chemical supplier Indonesia",
