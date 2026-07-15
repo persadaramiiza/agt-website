@@ -410,7 +410,7 @@ export const products: Product[] = [
       "Dextrose monohydrate for food and beverage sweetening, feed additives, and plant-growth stimulation.",
     description:
       "A crystalline carbohydrate ingredient for production teams that need sweetness, bulking behavior, feed support, and consistent documentation.",
-    applications: ["Food Processing", "Beverage Systems", "Feed Additives", "Agriculture"],
+    applications: ["Food Processing", "Beverage Systems", "Feed Additives"],
     specs: [
       { label: "Product Type", value: "Dextrose monohydrate" },
       { label: "Origin", value: "Fufeng" },
@@ -437,7 +437,7 @@ export const products: Product[] = [
       "Lihua dextrose monohydrate option for carbohydrate, sweetening, and formulation support.",
     description:
       "A dextrose monohydrate product option for food, beverage, feed, and selected agricultural formulation needs.",
-    applications: ["Food Processing", "Beverage Systems", "Feed Additives", "Agriculture"],
+    applications: ["Food Processing", "Beverage Systems", "Feed Additives"],
     specs: [
       { label: "Product Type", value: "Dextrose monohydrate" },
       { label: "Origin", value: "Lihua" },
@@ -722,15 +722,12 @@ export const industries: Industry[] = [
     ],
     solutions: [
       "TCCA and kaporit support for pond, water-line, and facility sanitation.",
-      "Dextrose support for feed additive and crop-input discussions.",
       "Technical review to match grade, packaging, and documentation needs.",
     ],
     productSlugs: [
       "tcca-90-powder",
       "tcca-90-granul-mesh-5-8",
       "kaporit-60",
-      "dextrose-monohydrate-fufeng",
-      "dextrose-monohydrate-lihua",
     ],
   },
   {
