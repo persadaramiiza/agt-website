@@ -12,6 +12,7 @@ import {
   Pickaxe,
   Utensils,
 } from "lucide-react";
+import { TrackedContactLink } from "@/components/tracked-contact-link";
 import { getIndustry, getProduct, industries } from "@/lib/data";
 import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -89,14 +90,19 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
               {industry.summary}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
+              <TrackedContactLink
                 href={buildWhatsAppUrl(`${industry.name} industry solutions`)}
                 target="_blank"
                 rel="noopener noreferrer"
+                tracking={{
+                  channel: "whatsapp",
+                  action: "industry_quote_request",
+                  context: industry.name,
+                }}
                 className="cta-red inline-flex items-center gap-2 rounded-[2px] bg-accent px-6 py-3 text-xs font-bold uppercase tracking-[0.7px] shadow-lg"
               >
                 Request Industry Quote <ArrowRight size={14} />
-              </a>
+              </TrackedContactLink>
               <Link
                 href="#recommended-products"
                 className="rounded-[2px] border-2 border-white/70 bg-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.7px] text-white shadow-[0_12px_28px_-20px_rgba(255,255,255,0.8)] backdrop-blur transition hover:border-white hover:bg-white/20"

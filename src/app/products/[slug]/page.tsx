@@ -19,6 +19,7 @@ import {
   Waves,
   Wheat,
 } from "lucide-react";
+import { TrackedContactLink } from "@/components/tracked-contact-link";
 import { getProduct, industries, products } from "@/lib/data";
 import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppDocumentUrl, buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -432,23 +433,34 @@ export default async function ProductDetailPage({
             {product.description}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
+            <TrackedContactLink
               href={buildWhatsAppUrl(product.name)}
               target="_blank"
               rel="noopener noreferrer"
+              tracking={{
+                channel: "whatsapp",
+                action: "product_quote_request",
+                context: product.name,
+              }}
               className="cta-red rounded-[2px] bg-accent px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-white shadow-[0_4px_7px_rgba(187,0,33,0.39)]"
             >
               Request an Instant Quote
-            </a>
+            </TrackedContactLink>
             {product.documents[0] ? (
-              <a
+              <TrackedContactLink
                 href={buildWhatsAppDocumentUrl(product.name, product.documents[0].label)}
                 target="_blank"
                 rel="noopener noreferrer"
+                tracking={{
+                  channel: "whatsapp",
+                  action: "document_request",
+                  context: product.name,
+                  documentName: product.documents[0].label,
+                }}
                 className="rounded-[2px] border border-[#c2c6d4]/30 bg-white px-8 py-4 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
                 Request Document via WhatsApp
-              </a>
+              </TrackedContactLink>
             ) : null}
           </div>
         </div>
@@ -676,24 +688,35 @@ export default async function ProductDetailPage({
           </div>
           <div className="mt-6 flex flex-wrap gap-4 md:mt-0">
             {product.documents.map((document) => (
-              <a
+              <TrackedContactLink
                 key={document.href}
                 href={buildWhatsAppDocumentUrl(product.name, document.label)}
                 target="_blank"
                 rel="noopener noreferrer"
+                tracking={{
+                  channel: "whatsapp",
+                  action: "document_request",
+                  context: product.name,
+                  documentName: document.label,
+                }}
                 className="inline-flex items-center gap-2 rounded-[2px] bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
               >
                 <FileText size={16} />
                 Request {document.label}
-              </a>
+              </TrackedContactLink>
             ))}
-            <a
+            <TrackedContactLink
               href={`mailto:admin@arbetrading.com?subject=${emailSubject}&body=${emailBody}`}
+              tracking={{
+                channel: "email",
+                action: "document_request",
+                context: product.name,
+              }}
               className="inline-flex items-center gap-2 rounded-[2px] border border-primary/20 bg-white px-6 py-3 text-sm font-bold uppercase tracking-[1.4px] text-primary"
             >
               <FileText size={16} />
               Request via Email
-            </a>
+            </TrackedContactLink>
           </div>
         </div>
       </section>

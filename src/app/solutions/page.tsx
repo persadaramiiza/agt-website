@@ -8,6 +8,7 @@ import {
   FlaskConical,
   Wheat,
 } from "lucide-react";
+import { TrackedContactLink } from "@/components/tracked-contact-link";
 import { figmaAssets, solutions } from "@/lib/design";
 import { createPageMetadata } from "@/lib/seo";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -66,14 +67,19 @@ export default function SolutionsPage() {
               process efficiency, reduce operational challenges, and help your
               business achieve consistent, reliable results.
             </p>
-            <a
+            <TrackedContactLink
               href={buildWhatsAppUrl("solution consultation")}
               target="_blank"
               rel="noopener noreferrer"
+              tracking={{
+                channel: "whatsapp",
+                action: "solution_consultation",
+                context: "Solution consultation",
+              }}
               className="cta-red mt-8 inline-flex items-center gap-2 rounded-[2px] bg-accent px-8 py-3 text-base font-medium text-white"
             >
               Find Your Solution <ArrowRight size={14} />
-            </a>
+            </TrackedContactLink>
           </div>
           <div className="industrial-shadow overflow-hidden rounded-lg bg-[#f2f4f6]">
             <img

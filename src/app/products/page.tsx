@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ProductExplorer } from "@/components/product-explorer";
+import { TrackedContactLink } from "@/components/tracked-contact-link";
 import { getProductFilterOptions } from "@/lib/product-filter";
 import { industries, products } from "@/lib/data";
 import { createPageMetadata } from "@/lib/seo";
@@ -37,14 +38,19 @@ export default function ProductsPage() {
           category without leaving the catalog page.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <a
+          <TrackedContactLink
             href={buildWhatsAppUrl("AGT product portfolio")}
             target="_blank"
             rel="noopener noreferrer"
+            tracking={{
+              channel: "whatsapp",
+              action: "portfolio_quote_request",
+              context: "AGT product portfolio",
+            }}
             className="cta-red inline-flex rounded-[2px] bg-accent px-7 py-3 text-sm font-bold uppercase tracking-[0.7px] text-white"
           >
             Request an Instant Quote
-          </a>
+          </TrackedContactLink>
           <Link
             href="/contact"
             className="inline-flex rounded-[2px] border border-line bg-white px-7 py-3 text-sm font-bold uppercase tracking-[0.7px] text-primary"

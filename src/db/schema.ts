@@ -90,6 +90,23 @@ export const inquiries = pgTable(
   ],
 );
 
+export const contactEvents = pgTable(
+  "contact_events",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    channel: text("channel").notNull(),
+    action: text("action").notNull(),
+    context: text("context"),
+    documentName: text("document_name"),
+    sourcePath: text("source_path"),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [
+    index("contact_events_channel_idx").on(table.channel),
+    index("contact_events_created_at_idx").on(table.createdAt),
+  ],
+);
+
 export const documents = pgTable(
   "documents",
   {

@@ -71,3 +71,11 @@ export type InquiryPayload = {
   message: string;
   sourcePath?: string;
 };
+
+export type ContactEventPayload = {
+  channel: "email" | "whatsapp";
+  action: string;
+  context?: string;
+  documentName?: string;
+  sourcePath?: string;
+};
